@@ -1,0 +1,93 @@
+
+<!-- 移动端代码，最基本的移动端适配的思路-->
+<meta charset="utf-8">
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+
+
+<script type="text/javascript">
+  ;(function (win, lib) {
+
+    var doc = win.document;
+    var docE1= doc.documentElement;
+    var mataE1 =doc.querySelector('mata[name="viewport"]');
+
+    if(mataE1){
+      var match=mataE1.getAttribute("content").match(/initial\-scale=([\d\.]+)/) ;
+      if(match){
+        scale=parseFloat(match[1]);
+
+      }
+
+    }else {
+
+    }
+  })(window,window["lib"]||(window["lib"]={}))
+</script>
+<div>
+  <h1>
+    移动端适配方案
+  </h1>
+</div>
+
+
+
+
+
+<script>
+  !function (win, lib) {
+    var flexible = lib.flexible || (lib.flexible = {});
+
+    function a() {
+      if (/MailMaster/.test(navigator.userAgent) && /android/i.test(navigator.userAgent)) {
+        if (parseInt(document.documentElement.clientWidth) > 720) {
+          document.documentElement.style.fontSize = 720 / 7.5 + "px";
+        } else {
+          document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + "px";
+        }
+      } else {
+        if (parseInt(document.documentElement.clientWidth) > 720) {
+          document.documentElement.style.fontSize = 720 / 750 * 10 / 16 * 1000 + "%";
+        } else {
+          document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 10 / 16 * 1000 + "%";
+        }
+      }
+    }
+
+    var b = null;
+    flexible.dpr = 1;
+    flexible.rem = 100;
+    flexible.rem2px = function (d) {
+      var val = parseFloat(d * 75 / 100) * this.rem;
+      if (typeof d === 'string' && d.match(/rem$/)) {
+        val += 'px';
+      }
+      return val;
+    }
+    flexible.px2rem = function (d) {
+      var val = parseFloat(d) / this.rem;
+      if (typeof d === 'string' && d.match(/px$/)) {
+        val += 'rem';
+      }
+      return val;
+    }
+    win.addEventListener("resize", function () {
+      clearTimeout(b);
+      b = setTimeout(a, 300);
+    }, !1);
+    a();
+  }(window, window['lib'] || (window['lib'] = {}));
+  (function () {
+    if (typeof window.WeixinJSBridge == "object" && typeof window.WeixinJSBridge.invoke == "function") {
+      handleFontSize();
+    } else {
+      document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+    }
+
+    function handleFontSize() {
+      window.WeixinJSBridge.invoke('setFontSizeCallback', {'fontSize': 0});
+      window.WeixinJSBridge.on('menu:setfont', function () {
+        window.WeixinJSBridge.invoke('setFontSizeCallback', {'fontSize': 0});
+      });
+    }
+  })();
+</script>
