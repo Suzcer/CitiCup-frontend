@@ -5,6 +5,7 @@ import ESG from '@/components/ESG';
 import rank from '@/components/rank';
 import mine from '@/components/mine';
 import minedetail from '@/components/minedetail';
+import environment from "../components/environment";
 
 
 Vue.use(Router)
@@ -32,6 +33,10 @@ export default new Router({
       path: '/minedetail',
       name: 'minedetail',
       component: minedetail
+    },{
+      path: '/environment',
+      name: 'environment',
+      component: environment
     },
   ]
 })

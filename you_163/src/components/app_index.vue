@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div id="app">
     <van-row>
       <van-col>
-        <img class="logo" src="../assets/logo-img.png"/>
+        <!--        <img class="logo" src="../assets/logo-img.png"/>-->
       </van-col>
       <van-col>
         <van-search
@@ -70,13 +70,15 @@
     </footerbar>
 
 
-
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import footerbar from './footerbar'
+
+
+
 
 export default {
   name: 'app_index',
@@ -121,10 +123,10 @@ export default {
       active: ''
     }
   },
-  components:{footerbar},
+  components: {footerbar},
   created() {
-    axios.get('http://localhost:5632/get_tabbtn_tist').then(_d=>{
-      this.tabBtnList=_d.data;
+    axios.get('http://localhost:5632/get_tabbtn_tist').then(_d => {
+      this.tabBtnList = _d.data;
 
     })
   }

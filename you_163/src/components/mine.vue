@@ -1,82 +1,87 @@
 <template>
-  <div>
-
-    <van-row>
-      <van-col span="8">
-        <van-image
-          round
-          width="1.5rem"
-          height="1.5rem"
-          src="https://img.yzcdn.cn/vant/cat.jpeg"
-          class="headimg"
-        />
-      </van-col>
-      <van-col span="8">
-        <div>
-          <van-button type="warning" class="loginbtn">登录</van-button>
-        </div>
-      </van-col>
-    </van-row>
-
-    <van-row class="certainiofo">
-      <van-col span="8">
-        <i class="icon iconfont icon_1"></i>
-        <span></span>
-        浏览记录
-      </van-col>
-      <van-col span="8">
-        <i class="icon iconfont icon_2"></i>
-        收藏文章
-      </van-col>
-      <van-col span="8">
-        <i class="icon iconfont icon_3"></i>
-        收藏基金
-      </van-col>
-    </van-row>
-    <div class="mydivider">
-      <van-divider>
-      </van-divider>
-    </div>
+  <el-container>
+    <div>
 
 
-    <van-row>
-      <van-col span="22">
-        <div>
+      <el-header>
+        <van-row>
+          <van-col span="8">
+            <van-image
+              round
+              width="1.5rem"
+              height="1.5rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+              class="headimg"
+            />
+          </van-col>
+          <van-col span="8">
+            <div>
+              <van-button type="warning" class="loginbtn">登录</van-button>
+            </div>
+          </van-col>
+        </van-row>
+
+        <van-row class="certainiofo">
+          <van-col span="8">
+            <i class="icon iconfont icon_1"></i>
+            <span></span>
+            浏览记录
+          </van-col>
+          <van-col span="8">
+            <i class="icon iconfont icon_2"></i>
+            收藏文章
+          </van-col>
+          <van-col span="8">
+            <i class="icon iconfont icon_3"></i>
+            收藏基金
+          </van-col>
+        </van-row>
+
+      </el-header>
+      <el-main>
+
+
+  <van-row>
+    <van-col span="22">
+      <div>
           <span class="lititle">
             我的ESG偏好
           </span>
-        </div>
-      </van-col>
-      <van-col span="2">
-        详情>
-      </van-col>
-    </van-row>
+      </div>
+    </van-col>
+    <van-col span="2">
+      详情>
+    </van-col>
+  </van-row>
 
-    <div>
-      <img class="logo" src="../assets/雷达图.png"/>
-    </div>
+  <div>
+    <img class="logo" src="../assets/雷达图.png"/>
+  </div>
 
 
-    <br/>
-    <br/>
-    <van-row>
-      <van-col span="22">
-        <div>
+  <br/>
+  <br/>
+  <van-row>
+    <van-col span="22">
+      <div>
           <span class="lititle">
             我的投资组合
           </span>
-        </div>
-      </van-col>
-      <van-col span="2">
-        详情>
-      </van-col>
-    </van-row>
+      </div>
+    </van-col>
+    <van-col span="2">
+      详情>
+    </van-col>
+  </van-row>
 
 
-    <footerbar>
+      </el-main>
 
-    </footerbar>
+  <footerbar>
+
+  </footerbar>
   </div>
+  </el-container>
 
 </template>
 <script>
@@ -146,10 +151,7 @@ export default {
   font-weight: bold;
 }
 
-.mydivider {
-  padding: .2rem;
-  color: #f8f8f8;
-}
+
 
 
 </style>
