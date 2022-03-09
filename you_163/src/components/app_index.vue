@@ -17,52 +17,70 @@
         </div>
       </van-col>
     </van-row>
+    <br/>
+    <br/>
 
-    <van-tabs v-model:active="active">
-      <van-tab v-for="(n,inx)  in tabBtnList" :key="inx" :title="n">
-        <!--         {{ index }}-->
-      </van-tab>
-    </van-tabs>
+<!--    <van-tabs v-model:active="active">-->
+<!--      <van-tab v-for="(n,inx)  in tabBtnList" :key="inx" :title="n">-->
+<!--        &lt;!&ndash;         {{ index }}&ndash;&gt;-->
+<!--      </van-tab>-->
+<!--    </van-tabs>-->
 
-    <van-swipe class="my-swipe" :autoplay="1000" indicator-color="white">
-      <van-swipe-item>
-        <img src="../assets/swipe-bg1.png">
-      </van-swipe-item>
+<!--    <van-swipe class="my-swipe" :autoplay="1000" indicator-color="white">-->
+<!--      <van-swipe-item>-->
+<!--        <img src="../assets/swipe-bg1.png">-->
+<!--      </van-swipe-item>-->
 
-      <van-swipe-item>
-        <img src="../assets/swipe-bg3.png">
-      </van-swipe-item>
-      <van-swipe-item>
-        <img src="../assets/swipe-bg4.png">
-      </van-swipe-item>
-      <van-swipe-item>
-        <img src="../assets/swipe-bg5.png">
-      </van-swipe-item>
-    </van-swipe>
+<!--      <van-swipe-item>-->
+<!--        <img src="../assets/swipe-bg3.png">-->
+<!--      </van-swipe-item>-->
+<!--      <van-swipe-item>-->
+<!--        <img src="../assets/swipe-bg4.png">-->
+<!--      </van-swipe-item>-->
+<!--      <van-swipe-item>-->
+<!--        <img src="../assets/swipe-bg5.png">-->
+<!--      </van-swipe-item>-->
+<!--    </van-swipe>-->
 
-    <!--  -->
-    <van-row class="service_info">
-      <van-col span="8">
-        <i></i>
-        <span>NJU花旗杯</span>
 
-      </van-col>
-      <van-col span="8">
-        <i></i>
-        <span>NJU花旗杯</span></van-col>
-      <van-col span="8">
-        <i></i>
-        <span>NJU花旗杯</span>
-      </van-col>
-    </van-row>
 
-    <!-- 栏目图  -->
-    <van-grid :column-num="5">
-      <van-grid-item v-for="(n,inx) in good_icon" :key=inx>
-        <img :src="n.imgurl"/>
-        <div>{{ n.goods_txt }}</div>
-      </van-grid-item>
-    </van-grid>
+<!--    &lt;!&ndash; 栏目图  &ndash;&gt;-->
+<!--    <van-grid :column-num="5">-->
+<!--      <van-grid-item v-for="(n,inx) in good_icon" :key=inx>-->
+<!--        <img :src="n.imgurl"/>-->
+<!--        <div>{{ n.goods_txt }}</div>-->
+<!--      </van-grid-item>-->
+<!--    </van-grid>-->
+    <el-button disabled class="BigLayout">
+      <div class="myfont">
+        示例时事1
+      </div>
+    </el-button>
+
+    <el-button disabled class="BigLayout">
+      <div class="myfont">
+        示例时事2
+      </div>
+    </el-button>
+
+    <el-button disabled class="BigLayout">
+      <div class="myfont">
+        示例时事3
+      </div>
+    </el-button>
+
+    <el-button disabled class="BigLayout">
+      <div class="myfont">
+        示例时事4
+      </div>
+    </el-button>
+
+    <el-button disabled class="BigLayout">
+      <div class="myfont">
+        示例时事5
+      </div>
+    </el-button>
+
 
     <!-- 吸底-->
     <footerbar>
@@ -179,5 +197,22 @@ export default {
   background-size: 100%;
   width: .5rem;
   height: .5rem;
+}
+
+
+
+.myfont {
+  font-size: large;
+  color: black;
+}
+
+.BigLayout {
+  height: 2rem;
+  width: 5.5rem;
+  margin: .2rem .3rem .2rem .4rem;
+  color: #f7f7f7;
+  box-shadow: .1rem .1rem .3rem #888888;
+  background: #f7f7f7;
+
 }
 </style>

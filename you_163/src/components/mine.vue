@@ -38,49 +38,61 @@
         </van-row>
 
       </el-header>
+
+
       <el-main>
 
 
-  <van-row>
-    <van-col span="22">
-      <div>
-          <span class="lititle">
-            我的ESG偏好
-          </span>
-      </div>
-    </van-col>
-    <van-col span="2">
-      详情>
-    </van-col>
-  </van-row>
-
-  <div>
-    <img class="logo" src="../assets/雷达图.png"/>
-  </div>
+        <van-row>
+          <el-divider></el-divider>
+          <van-col span="22">
+            <div>
 
 
-  <br/>
-  <br/>
-  <van-row>
-    <van-col span="22">
-      <div>
+              <span class="lititle">
+              我的ESG偏好
+              </span>
+
+            </div>
+          </van-col>
+          <van-col span="2">
+            <router-link to="minedetail">
+              <span class="mydetail">
+              详情>
+              </span>
+            </router-link>
+          </van-col>
+        </van-row>
+
+        <div>
+          <img class="logo" src="../assets/雷达图.png"/>
+        </div>
+
+
+        <br/>
+        <br/>
+        <van-row>
+          <van-col span="22">
+            <div>
           <span class="lititle">
             我的投资组合
           </span>
-      </div>
-    </van-col>
-    <van-col span="2">
-      详情>
-    </van-col>
-  </van-row>
+            </div>
+          </van-col>
+          <van-col span="2">
+            <span class="mydetail">
+            详情>
+            </span>
+          </van-col>
+        </van-row>
 
 
       </el-main>
 
-  <footerbar>
+      <footerbar>
 
-  </footerbar>
-  </div>
+      </footerbar>
+    </div>
   </el-container>
 
 </template>
@@ -151,7 +163,10 @@ export default {
   font-weight: bold;
 }
 
-
+.mydetail{
+  color: #736c6c;
+  margin: .1rem 1rem 0 0;
+}
 
 
 </style>

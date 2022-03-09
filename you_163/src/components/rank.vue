@@ -11,51 +11,54 @@
       <el-main>
 
 
+        <div>
+          <el-button round class="mybtn">收益率</el-button>
+          <el-button round class="mybtn">关注度</el-button>
+        </div>
+        <br/>
+        <br/>
+        <br/>
 
-    <div >
-      <el-button round class="mybtn">收益率</el-button>
-      <el-button round class="mybtn">关注度</el-button>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-
-<!--    <div class="mywrapper">-->
-<!--      <van-tabs v-model:active="active" scrollspy sticky>-->
-<!--        <van-tab v-for="(n,inx) in ESGrank" :title="n.title" :key=inx>-->
-<!--          <div class="myitem">-->
-<!--            {{ n.attr }}:{{ n.title }}-->
-<!--            <br/>-->
-<!--            <br/>-->
-<!--          </div>-->
-<!--        </van-tab>-->
-<!--      </van-tabs>-->
-<!--    </div>-->
+        <!--    <div class="mywrapper">-->
+        <!--      <van-tabs v-model:active="active" scrollspy sticky>-->
+        <!--        <van-tab v-for="(n,inx) in ESGrank" :title="n.title" :key=inx>-->
+        <!--          <div class="myitem">-->
+        <!--            {{ n.attr }}:{{ n.title }}-->
+        <!--            <br/>-->
+        <!--            <br/>-->
+        <!--          </div>-->
+        <!--        </van-tab>-->
+        <!--      </van-tabs>-->
+        <!--    </div>-->
 
 
-    <div>
-      <template>
-        <el-table
-          :data="ESGrank"
-          style="width: 100%" class="mytable"
-          :row-class-name="tableRowClassName">
-          <el-table-column
-            prop="rank"
-            width="30"
-            class="mycol"
-          >
-          </el-table-column>
-          <el-table-column
-            prop="attr"
-            width="40">
-          </el-table-column>
-          <el-table-column
-            prop="title">
-          </el-table-column>
-        </el-table>
-      </template>
-    </div>
-    </el-main>
+        <div>
+          <template>
+            <el-table
+              :data="ESGrank"
+              style="width: 100%" class="mytable"
+              :row-class-name="tableRowClassName">
+              <el-table-column
+                prop="rank"
+                width="30"
+                class="firstcol"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="attr"
+                width="40"
+                class="secondcol"
+              >
+              </el-table-column>
+              <el-table-column
+                prop="title"
+                class="thirdcol"
+              >
+              </el-table-column>
+            </el-table>
+          </template>
+        </div>
+      </el-main>
 
       <el-footer>
         <footerbar>
@@ -63,7 +66,6 @@
         </footerbar>
       </el-footer>
     </el-container>
-
 
 
   </div>
@@ -75,7 +77,7 @@ import footerbar from './footerbar'
 
 export default {
   name: 'rank',
-  methods:{
+  methods: {
     tableRowClassName({row, rowIndex}) {
       if (rowIndex === 1) {
         return 'warning-row';
@@ -90,42 +92,42 @@ export default {
       ESGrank:
         [
           {
-            rank:1,
+            rank: 1,
             title: '碳排放及减排量',
             attr: 'E'
           },
           {
-            rank:2,
+            rank: 2,
             title: '员工管理',
             attr: 'S'
           },
           {
-            rank:3,
+            rank: 3,
             title: '企业治理与公司架构',
             attr: 'G'
           },
           {
-            rank:4,
+            rank: 4,
             title: '气候变化',
             attr: 'E'
           },
           {
-            rank:5,
+            rank: 5,
             title: '企业经营',
             attr: 'G'
           },
           {
-            rank:6,
+            rank: 6,
             title: '商业道德',
             attr: 'G'
           },
           {
-            rank:7,
+            rank: 7,
             title: '客户与消费者管理',
             attr: 'S'
           },
           {
-            rank:8,
+            rank: 8,
             title: '污染与排放',
             attr: 'E'
           },
@@ -165,12 +167,26 @@ export default {
 
 }
 
-.mycol{
+.firstcol {
   text-align: center;
+  font-size: larger;
+  color: red;
 
 }
 
-.mytable{
+.secondcol {
+  text-align: center;
+  font-size: xxx-large;
+  color: red;
+
+}
+
+.thirdcol {
+  color: red;
+
+}
+
+.mytable {
   box-shadow: .1rem .1rem .3rem #888888;
 }
 

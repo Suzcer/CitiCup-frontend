@@ -5,22 +5,28 @@
     </div>
 
     <router-link to="environment">
-      <el-button disabled class="BigLayout" >
+      <el-button disabled class="BigLayout">
         <div class="myfont">
           环境
         </div>
       </el-button>
     </router-link>
-    <el-button disabled class="BigLayout">
-      <div class="myfont">
-        社会
-      </div>
-    </el-button>
-    <el-button disabled class="BigLayout">
-      <div class="myfont">
-        治理
-      </div>
-    </el-button>
+
+    <router-link to="society">
+      <el-button disabled class="BigLayout">
+        <div class="myfont">
+          社会
+        </div>
+      </el-button>
+    </router-link>
+
+    <router-link to="governance">
+      <el-button disabled class="BigLayout">
+        <div class="myfont">
+          治理
+        </div>
+      </el-button>
+    </router-link>
 
 
     <footerbar>
@@ -37,9 +43,7 @@ import Vue from "vue";
 
 export default {
   name: 'ESG',
-  methods: {
-
-  },
+  methods: {},
   data() {
     return {
       search_v: ''
