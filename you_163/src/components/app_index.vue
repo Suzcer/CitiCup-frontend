@@ -17,35 +17,12 @@
     <br/>
 
 
-    <el-button class="BigLayout">
+    <el-button class="BigLayout" v-for="article in articles">
       <div class="myfont">
-        示例时事1
+        {{article.briefInformation}}
       </div>
     </el-button>
 
-    <el-button class="BigLayout">
-      <div class="myfont">
-        示例时事2
-      </div>
-    </el-button>
-
-    <el-button class="BigLayout">
-      <div class="myfont">
-        示例时事3
-      </div>
-    </el-button>
-
-    <el-button class="BigLayout">
-      <div class="myfont">
-        示例时事4
-      </div>
-    </el-button>
-
-    <el-button class="BigLayout">
-      <div class="myfont">
-        示例时事5
-      </div>
-    </el-button>
 
 
     <!-- 吸底-->
@@ -69,49 +46,14 @@ export default {
   data() {
     return {
       search_v: '',
-      tabBtnList: '',
-      good_icon: [
-        {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金1'
-        }, {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金2'
-        }, {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金3'
-        }, {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金4'
-        }, {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金5'
-        }, {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金6'
-        }, {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金7'
-        }, {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金8'
-        }, {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金9'
-        }, {
-          imgurl: require('../assets/lan.png'),
-          goods_txt: '基金10'
-        },
-
-      ],
-      active: ''
+      active: '',
+      articles:[]
     }
   },
   components: {footerbar},
   created() {
-    axios.get('http://localhost:5632/get_tabbtn_tist').then(_d => {
-      this.tabBtnList = _d.data;
-
+    axios.get('http://localhost:8181/article/all').then(_d => {
+      this.articles = _d.data;
     })
   }
 }
