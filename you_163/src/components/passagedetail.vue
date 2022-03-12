@@ -32,12 +32,16 @@ export default {
   created() {
     console.log(this.articleId)
     console.log("被触发")
-    var articleurl='http://localhost:8181/article/'+this.articleId
+    let articleurl = 'http://localhost:8181/article/' + this.articleId;
     // console.log(this.articleurl)
 
-    axios.get(articleurl).then(_d => {
+    // axios.get(articleurl).then(_d => {
+    //   this.article = _d.data;
+    // })
+    axios.get('http://localhost:8181/article/all').then(_d => {
       this.article = _d.data;
     })
+
   },
 }
 </script>
