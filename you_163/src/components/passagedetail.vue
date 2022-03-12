@@ -40,7 +40,6 @@ export default {
     // })
     axios.get('http://localhost:8181/article/all').then(_d => {
       this.article = _d.data;
-
     })
 
   },
