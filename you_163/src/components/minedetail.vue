@@ -4,21 +4,20 @@
     <el-container>
       <el-header>
 
-
         <div class="Bigtitle">
           我的ESG偏好
         </div>
       </el-header>
 
       <el-main>
-        <router-link to="ESG">
+        <router-link to="mine">
       <span class="myreturn">
         < 返回
       </span>
         </router-link>
 
 
-        <el-button disabled class="BigLayout">
+        <el-button class="BigLayout">
           <span class="myalpha">
             E
           </span>
@@ -29,7 +28,7 @@
             编辑>
           </span>
         </el-button>
-        <el-button disabled class="BigLayout">
+        <el-button class="BigLayout">
           <span class="myalpha">
             S
           </span>
@@ -40,7 +39,7 @@
             编辑>
           </span>
         </el-button>
-        <el-button disabled class="BigLayout">
+        <el-button class="BigLayout">
           <span class="myalpha">
             G
           </span>
@@ -70,9 +69,27 @@ import footerbar from './footerbar'
 
 export default {
   name: 'minedetail',
-  methods: {},
+  methods: {
+
+
+  },
+  created:function(){
+    axios({
+      url:"/posts",
+      params:{
+        id:1
+      }
+    }).then(res=>{
+      console.log(res)
+    },err=>{
+      console.log(err)
+    })
+  },
+
   data() {
-    return {}
+    return {
+
+    }
   },
   components: {footerbar}
 }

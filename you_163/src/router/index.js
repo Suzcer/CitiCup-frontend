@@ -9,6 +9,7 @@ import environment from "@/components/environment";
 import society from "@/components/society";
 import governance from "@/components/governance";
 import rankdetail from "@/components/rankdetail";
+import passagedetail from "@/components/passagedetail";
 
 Vue.use(Router)
 
@@ -51,6 +52,10 @@ export default new Router({
       path: '/rankdetail',
       name: 'rankdetail',
       component: rankdetail
+    },{
+      path: '/passagedetail/:id',
+      name: 'passagedetail',
+      component: passagedetail
     },
   ]
 })

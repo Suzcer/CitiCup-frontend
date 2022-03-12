@@ -74,6 +74,5 @@ export default {
   color: #f7f7f7;
   box-shadow: .1rem .1rem .3rem #888888;
   background: #f7f7f7;
-
 }
 </style>

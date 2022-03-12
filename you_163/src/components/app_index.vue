@@ -10,19 +10,18 @@
           v-model="search_v"
           background="#ff"
           placeholder="请输入搜索关键词"
-          />
+        />
       </van-col>
     </van-row>
     <br/>
     <br/>
 
 
-    <el-button class="BigLayout" v-for="article in articles">
+    <el-button class="BigLayout" v-for="article in articles" @click="toPassagedetail(article.articleId)">
       <div class="myfont">
-        {{article.briefInformation}}
+        {{ article.briefInformation }}
       </div>
     </el-button>
-
 
 
     <!-- 吸底-->
@@ -39,15 +38,21 @@ import axios from 'axios'
 import footerbar from './footerbar'
 
 
-
-
 export default {
   name: 'app_index',
   data() {
     return {
       search_v: '',
       active: '',
-      articles:[]
+      articles: []
+    }
+  },
+  methods: {
+    toPassagedetail(id) {
+      this.$router.push({
+        name: "passagedetail",
+        params: {id: id}
+      })
     }
   },
   components: {footerbar},
@@ -81,7 +86,6 @@ export default {
 }
 
 
-
 .myfont {
   font-size: large;
   color: black;
@@ -93,7 +97,7 @@ export default {
   margin: .2rem .3rem .2rem .4rem;
   color: #f7f7f7;
   box-shadow: .1rem .1rem .3rem #888888;
-  background:#f7f7f7;
+  background: #f7f7f7;
 
 }
 </style>
