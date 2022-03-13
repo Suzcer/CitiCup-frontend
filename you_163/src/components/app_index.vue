@@ -86,10 +86,10 @@ export default {
         _this.articles=_this.LookupList
 
       }).catch(err => {
+
           console.log("查询失败")
         }
       )
-      console.log(_this.LookupList)
     }
   },
 

@@ -51,8 +51,6 @@
           <el-divider></el-divider>
           <van-col span="22">
             <div>
-
-
               <span class="lititle">
               我的ESG偏好
               </span>

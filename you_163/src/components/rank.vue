@@ -15,53 +15,50 @@
 
         <div>
 
-          <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default mybtn">收益率</button>
-            <button type="button" class="btn btn-default mybtn">关注度</button>
+          <div class="btn-group mybtngroup" role="group" >
+            <button type="button" class="btn btn-default mybtn" @click="fetchRank(1)">收益率</button>
+            <button type="button" class="btn btn-default mybtn" @click="fetchRank(2)">关注度</button>
           </div>
 
 
         </div>
-        <br/>
-        <br/>
-        <br/>
 
-        <!--    <div class="mywrapper">-->
-        <!--      <van-tabs v-model:active="active" scrollspy sticky>-->
-        <!--        <van-tab v-for="(n,inx) in ESGrank" :title="n.title" :key=inx>-->
-        <!--          <div class="myitem">-->
-        <!--            {{ n.attr }}:{{ n.title }}-->
-        <!--            <br/>-->
-        <!--            <br/>-->
-        <!--          </div>-->
-        <!--        </van-tab>-->
-        <!--      </van-tabs>-->
-        <!--    </div>-->
 
 
         <div>
           <template>
+            <!--   TODO 表格内容太长，导致分行显示           -->
+
+
             <el-table
+              @row-click="toRankDetail"
               :data="ESGrank"
               style="width: 100%" class="mytable"
-              :row-class-name="tableRowClassName">
+              :row-class-name="tableRowClassName"
+            >
               <el-table-column
-                prop="rank"
-                width="30"
+                prop="FactorId"
+                width="20"
                 class="firstcol"
               >
               </el-table-column>
               <el-table-column
-                prop="attr"
-                width="40"
+                prop="firstClass"
+                width="20"
                 class="secondcol"
               >
               </el-table-column>
               <el-table-column
-                prop="title"
+                prop="name"
                 class="thirdcol"
               >
               </el-table-column>
+
+              <el-table-column>
+                <!--   TODO 选中特定行，并实现跳转           -->
+                <el-button @click="toRankDetail()">选择</el-button>
+              </el-table-column>
+
             </el-table>
           </template>
         </div>
@@ -92,54 +89,82 @@ export default {
         return 'success-row';
       }
       return '';
+    },
+
+    fetchRank(rankMethod){
+
+      let _this=this
+      axios.get('http://localhost:8181/factor/rank'+rankMethod).then(_d => {
+
+        _this.ESGrank = _d.data
+        console.log("查询成功")
+      }).catch(err => {
+          console.log("查询失败")
+        }
+      )
+    },
+    created() {
+      let _this=this
+      axios.get('http://localhost:8181/factor/rank1').then(_d => {
+        _this.ESGrank = _d.data;
+        console.log("初始化成功")
+      }).catch(err=>{
+        console.log("初始化失败")
+      })
+    },
+
+    // TODO : 选中特定行，并实现跳转
+    toRankDetail(row){
+      console.log("进入该准备跳转的页面")
+      console.log(row)
     }
   },
   data() {
     return {
-      ESGrank:
-        [
-          {
-            rank: 1,
-            title: '碳排放及减排量',
-            attr: 'E'
-          },
-          {
-            rank: 2,
-            title: '员工管理',
-            attr: 'S'
-          },
-          {
-            rank: 3,
-            title: '企业治理与公司架构',
-            attr: 'G'
-          },
-          {
-            rank: 4,
-            title: '气候变化',
-            attr: 'E'
-          },
-          {
-            rank: 5,
-            title: '企业经营',
-            attr: 'G'
-          },
-          {
-            rank: 6,
-            title: '商业道德',
-            attr: 'G'
-          },
-          {
-            rank: 7,
-            title: '客户与消费者管理',
-            attr: 'S'
-          },
-          {
-            rank: 8,
-            title: '污染与排放',
-            attr: 'E'
-          },
-
-        ],
+      ESGrank:[],
+        // [
+        //   {
+        //     rank: 1,
+        //     title: '碳排放及减排量',
+        //     attr: 'E'
+        //   },
+        //   {
+        //     rank: 2,
+        //     title: '员工管理',
+        //     attr: 'S'
+        //   },
+        //   {
+        //     rank: 3,
+        //     title: '企业治理与公司架构',
+        //     attr: 'G'
+        //   },
+        //   {
+        //     rank: 4,
+        //     title: '气候变化',
+        //     attr: 'E'
+        //   },
+        //   {
+        //     rank: 5,
+        //     title: '企业经营',
+        //     attr: 'G'
+        //   },
+        //   {
+        //     rank: 6,
+        //     title: '商业道德',
+        //     attr: 'G'
+        //   },
+        //   {
+        //     rank: 7,
+        //     title: '客户与消费者管理',
+        //     attr: 'S'
+        //   },
+        //   {
+        //     rank: 8,
+        //     title: '污染与排放',
+        //     attr: 'E'
+        //   },
+        //
+        // ],
 
       active: ''
     }
@@ -179,7 +204,6 @@ export default {
   box-shadow: .1rem .1rem .1rem #d9d9d9;
   border-radius: .3rem;
   display: table;
-  margin: 0 auto;
 
 }
 
@@ -204,6 +228,10 @@ export default {
 
 .mytable {
   box-shadow: .1rem .1rem .3rem #888888;
+}
+
+.mybtngroup{
+  margin: 0 0 0 1rem;
 }
 
 </style>
