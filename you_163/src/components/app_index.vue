@@ -59,8 +59,8 @@ export default {
       articles: [],
       // userId: this.$route.params.userId,
       userId: window.sessionStorage.getItem("userId"),
-      screenText: ''
-
+      screenText: '',
+      LookupList: []
     }
   },
   methods: {
@@ -73,12 +73,23 @@ export default {
       })
     },
     screen() {
+      let _this = this
+      // console.log(_this.screenText)
 
       //查找的接口
 
-      axios.get('http://localhost:8181/').then(_d => {
+      axios.get('http://localhost:8181/article/search?key=' + _this.screenText).then(_d => {
+        _this.LookupList = _d.data
+        console.log("查询成功")
+        console.log(_this.LookupList)
 
-      })
+        _this.articles=_this.LookupList
+
+      }).catch(err => {
+          console.log("查询失败")
+        }
+      )
+      console.log(_this.LookupList)
     }
   },
 

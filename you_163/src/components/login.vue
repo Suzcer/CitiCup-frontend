@@ -86,7 +86,6 @@ export default {
         {"name": _this.username, "password": _this.passwd}
       ).then(_d => {
 
-
         console.log(_d)
         if (_d.data === -1) {
           console.log("账号或密码错误，请重新输入")

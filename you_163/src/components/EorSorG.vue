@@ -50,7 +50,15 @@ import footerbar from './footerbar'
 
 export default {
   name: 'EorSorG',
-  methods: {},
+  methods: {
+
+    //TODO： 实现各级因素的获取
+    created() {
+      axios.get('http://localhost:8181/article/all').then(_d => {
+        this.articles = _d.data;
+      })
+    }
+  },
   data() {
     return {
       EorSorGList:["第一个因素","第二个因素","第三个因素","第四个因素","第五个因素"],
