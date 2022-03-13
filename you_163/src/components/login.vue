@@ -112,6 +112,7 @@ export default {
         } else {
 
           console.log("登录成功")
+
           _this.userId = _d.data
           this.$router.push({
 
