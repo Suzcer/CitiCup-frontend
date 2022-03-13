@@ -30,6 +30,7 @@
             <span></span>
             浏览记录
           </van-col>
+
           <van-col span="8">
             <i class="icon iconfont icon_2"></i>
             收藏文章

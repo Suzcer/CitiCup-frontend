@@ -116,6 +116,7 @@ export default {
           _this.userId = _d.data
 
           this.$router.push({
+
             name: "app_index",
             params: {userId: _this.userId}
           })
