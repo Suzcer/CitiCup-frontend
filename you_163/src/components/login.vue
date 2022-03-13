@@ -30,18 +30,9 @@
         <!--    <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
         <h1 class="h3 mb-3 font-weight-normal">请登录</h1>
         <label for="inputEmail" class="sr-only">用户名</label>
-        <input id="inputEmail" class="form-control" placeholder="Username" required autofocus style=" margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;" v-model="username">
+        <input id="inputEmail" class="form-control" placeholder="Username" required autofocus  v-model="username">
         <label for="inputPassword" class="sr-only">密码</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required style="  position: relative;
-  box-sizing: border-box;
-  height: auto;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;" v-model="passwd">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required  v-model="passwd">
         <!--        <div class="checkbox mb-3">-->
         <!--          <label>-->
         <!--            <input type="checkbox" value="remember-me" style="font-weight: 400;"> 记住我-->
@@ -100,7 +91,7 @@ export default {
         if (_d.data === -1) {
           console.log("账号或密码错误，请重新输入")
 
-          this.$alert('账号或密码错误，请重新输入', '错误', {
+          this.$alert('账号或密码错误，请重新输入。', '错误', {
             confirmButtonText: '确定',
             // callback: action => {  //回调函数
             //   this.$message({
@@ -114,10 +105,10 @@ export default {
           console.log("登录成功")
           _this.userId = _d.data
           this.$router.push({
-
             name: "app_index",
-            params: {userId: _this.userId}
+            // params: {userId: _this.userId}
           })
+          window.sessionStorage.setItem("userId",_this.userId)
         }
 
       }).catch(err => {
@@ -141,6 +132,24 @@ export default {
   -ms-user-select: none;
   user-select: none;
 }
+
+#inputEmail{
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#inputPassword{
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {

@@ -17,10 +17,10 @@
     <br/>
 
 
-    <el-button class="BigLayout" v-for="article in articles" @click="toPassagedetail(article.articleId,this.userId)">
+    <el-button class="BigLayout" v-for="article in articles" @click="toPassagedetail(article.articleId)">
       <div class="myfont">
         简介：{{ article.briefInformation }}
-        userId   :{{this.userId}}
+        userId   :{{userId}}
       </div>
     </el-button>
 
@@ -45,7 +45,9 @@ export default {
       search_v: '',
       active: '',
       articles: [],
-      userId: this.$route.params.userId,
+      // userId: this.$route.params.userId,
+      userId:window.sessionStorage.getItem("userId"),
+
     }
   },
   methods: {
@@ -54,7 +56,6 @@ export default {
         name: "passagedetail",
         params: {
           articleId: articleId,
-          userId: userId,
         }
       })
     }

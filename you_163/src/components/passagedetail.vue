@@ -28,7 +28,7 @@ export default {
       // id:{{this.$route.params}},
       article:[],
       articleId:this.$route.params.articleId,
-      userId:this.$route.params.userId,
+      userId:window.sessionStorage.getItem("userId"),
     }
   },
   created() {
