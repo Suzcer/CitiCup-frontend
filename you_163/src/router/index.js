@@ -10,6 +10,8 @@ import society from "@/components/society";
 import governance from "@/components/governance";
 import rankdetail from "@/components/rankdetail";
 import passagedetail from "@/components/passagedetail";
+import login from "@/components/login";
+import register from "@/components/register";
 
 Vue.use(Router)
 
@@ -56,6 +58,14 @@ export default new Router({
       path: '/passagedetail/:id',
       name: 'passagedetail',
       component: passagedetail
+    },{
+      path: '/login',
+      name: 'login',
+      component: login
+    },{
+      path: '/register',
+      name: 'register',
+      component: register
     },
   ]
 })

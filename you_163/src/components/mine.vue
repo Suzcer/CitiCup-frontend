@@ -15,8 +15,11 @@
             />
           </van-col>
           <van-col span="8">
+
             <div>
-              <van-button type="warning" class="loginbtn">登录</van-button>
+              <router-link to="login">
+                <van-button type="warning" class="loginbtn">登录</van-button>
+              </router-link>
             </div>
           </van-col>
         </van-row>
@@ -163,7 +166,7 @@ export default {
   font-weight: bold;
 }
 
-.mydetail{
+.mydetail {
   color: #736c6c;
   margin: .1rem 1rem 0 0;
 }

@@ -11,6 +11,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import $ from 'jquery'
 import 'bootstrap3/dist/css/bootstrap.css'
 import 'bootstrap3/dist/js/bootstrap.js'
+// import 'login/signin.css'
 
 import { Button,Col, Row,Search,Tab,Tabs,Swipe, SwipeItem,Grid, GridItem,Tabbar,
   TabbarItem,Image as VanImage,Divider,Cell, CellGroup} from 'vant';
