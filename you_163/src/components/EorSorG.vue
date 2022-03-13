@@ -2,9 +2,10 @@
 
   <div>
     <el-container>
+
       <el-header>
         <div class="Bigtitle">
-          环境
+          {{EorSorG}}
         </div>
       </el-header>
 
@@ -21,9 +22,9 @@
 
 
         <ul>
-          <li v-for="environmentItem in environmentList" class="ListLayout" v-model="name">
+          <li v-for="EorSorGItem in EorSorGList" class="ListLayout" v-model="name">
             <span class="myfont">
-              {{environmentItem}}
+              {{EorSorGItem}}
             </span>
             <br/>
           </li>
@@ -48,20 +49,16 @@ import axios from 'axios'
 import footerbar from './footerbar'
 
 export default {
-  name: 'environment',
+  name: 'EorSorG',
   methods: {},
   data() {
     return {
-      environmentList:["第一个因素","第二个因素","第三个因素","第四个因素","第五个因素"],
-      name:''
+      EorSorGList:["第一个因素","第二个因素","第三个因素","第四个因素","第五个因素"],
+      name:'',
+      EorSorG:this.$route.params.EorSorG,
     }
   },
   components: {footerbar},
-  watch:{
-    $route(to, from){
-      this.name=this.$route.params.name;
-    }
-  }
 }
 </script>
 <style scoped>

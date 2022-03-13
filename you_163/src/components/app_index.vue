@@ -1,18 +1,31 @@
 <template>
   <div id="app">
-    <van-row>
-      <van-col>
-        <!--        <img class="logo" src="../assets/logo-img.png"/>-->
-      </van-col>
-      <van-col>
-        <van-search
-          class="index_header_search"
-          v-model="search_v"
-          background="#ff"
-          placeholder="请输入搜索关键词"
-        />
-      </van-col>
-    </van-row>
+
+
+    <div class="input-group mysearch">
+      <!-- 搜索框 -->
+
+
+      <el-row>
+        <el-col :span="18">
+          <div class="grid-content bg-purple">
+            <input type="text" class="form-control screen-input" v-model="screenText" placeholder="全站搜索文章"
+                   @keyup.enter="screen()"/>
+          </div>
+        </el-col>
+
+        <el-col :span="6">
+          <div class="grid-content bg-purple-light">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="screen()">搜索</button>
+            </div>
+
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+
+
     <br/>
     <br/>
 
@@ -20,7 +33,6 @@
     <el-button class="BigLayout" v-for="article in articles" @click="toPassagedetail(article.articleId)">
       <div class="myfont">
         简介：{{ article.briefInformation }}
-        userId   :{{userId}}
       </div>
     </el-button>
 
@@ -46,17 +58,26 @@ export default {
       active: '',
       articles: [],
       // userId: this.$route.params.userId,
-      userId:window.sessionStorage.getItem("userId"),
+      userId: window.sessionStorage.getItem("userId"),
+      screenText: ''
 
     }
   },
   methods: {
-    toPassagedetail(articleId,userId) {
+    toPassagedetail(articleId) {
       this.$router.push({
         name: "passagedetail",
         params: {
           articleId: articleId,
         }
+      })
+    },
+    screen() {
+
+      //查找的接口
+
+      axios.get('http://localhost:8181/').then(_d => {
+
       })
     }
   },
@@ -107,4 +128,11 @@ export default {
   background: #f7f7f7;
 
 }
+
+.mysearch {
+  margin: .2rem .3rem .2rem .3rem;
+  width: 6rem;
+
+}
+
 </style>

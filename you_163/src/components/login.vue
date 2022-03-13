@@ -104,10 +104,7 @@ export default {
 
           console.log("登录成功")
           _this.userId = _d.data
-          this.$router.push({
-            name: "app_index",
-            // params: {userId: _this.userId}
-          })
+
           window.sessionStorage.setItem("userId",_this.userId)
         }
 

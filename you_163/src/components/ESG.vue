@@ -7,29 +7,13 @@
       智选因子
     </div>
 
-    <router-link to="environment">
-      <el-button disabled class="BigLayout">
+    <div v-for="EorSorG in ESG">
+      <el-button class="BigLayout" @click="toEorSorG(EorSorG)">
         <div class="myfont">
-          环境
+          {{EorSorG}}
         </div>
       </el-button>
-    </router-link>
-
-    <router-link to="society">
-      <el-button disabled class="BigLayout">
-        <div class="myfont">
-          社会
-        </div>
-      </el-button>
-    </router-link>
-
-    <router-link to="governance">
-      <el-button disabled class="BigLayout">
-        <div class="myfont">
-          治理
-        </div>
-      </el-button>
-    </router-link>
+    </div>
 
 
     <footerbar>
@@ -46,10 +30,21 @@ import Vue from "vue";
 
 export default {
   name: 'ESG',
-  methods: {},
+  methods: {
+    toEorSorG(EorSorG) {
+      this.$router.push({
+        name: "EorSorG",
+        params: {
+          EorSorG: EorSorG,
+        }
+      })
+    },
+  },
+
   data() {
     return {
-      search_v: ''
+      search_v: '',
+      ESG:['环境','社会','治理']
     }
   },
   components: {footerbar}

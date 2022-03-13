@@ -5,13 +5,11 @@ import ESG from '@/components/ESG';
 import rank from '@/components/rank';
 import mine from '@/components/mine';
 import minedetail from '@/components/minedetail';
-import environment from "@/components/environment";
-import society from "@/components/society";
-import governance from "@/components/governance";
 import rankdetail from "@/components/rankdetail";
 import passagedetail from "@/components/passagedetail";
 import login from "@/components/login";
 import register from "@/components/register";
+import EorSorG from "@/components/EorSorG";
 
 Vue.use(Router)
 
@@ -39,17 +37,9 @@ export default new Router({
       name: 'minedetail',
       component: minedetail
     }, {
-      path: '/environment',
-      name: 'environment',
-      component: environment
-    }, {
-      path: '/society',
-      name: 'society',
-      component: society
-    }, {
-      path: '/governance',
-      name: 'governance',
-      component: governance
+      path: '/EorSorG',
+      name: 'EorSorG',
+      component: EorSorG
     }, {
       path: '/rankdetail',
       name: 'rankdetail',
