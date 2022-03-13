@@ -83,6 +83,8 @@ export default {
   methods: {
     loginTo() {
 
+      var _this = this
+
       const paramss = new URLSearchParams();
       paramss.append('name', this.username);
       paramss.append('password', this.passwd);
@@ -92,14 +94,8 @@ export default {
 
       // axios.defaults.headers.post['Content-Type'] = 'application/json; charset=UTF-8';
 
-      axios.post({
-          method: 'post',
-          url: '/user/login',
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-          },
-          params: paramss
-      }
+      axios.post('http://localhost:8181/user/login',
+        {"username":_this.username,"password":_this.passwd}
       ).then(_d => {
         console.log("登录成功")
       }).catch(err => {
