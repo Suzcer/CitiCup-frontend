@@ -29,7 +29,6 @@ export default {
       article:[],
       articleId:this.$route.params.articleId,
       userId:this.$route.params.userId,
-
     }
   },
   created() {
