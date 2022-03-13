@@ -92,12 +92,12 @@ export default {
 
       // axios.defaults.headers.post['Content-Type'] = 'application/json; charset=UTF-8';
 
-      axios.post({
+      axios({
           method: 'post',
-          url: '/user/login',
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8'
-          },
+          url: 'http://localhost:8181/user/login',
+          // headers: {
+          //   'Content-type': 'application/json; charset=UTF-8'
+          // },
           params: paramss
       }
       ).then(_d => {
