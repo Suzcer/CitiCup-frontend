@@ -44,7 +44,6 @@ export default {
   data() {
     return {
       search_v: '',
-
       active: '',
       articles: [],
       userId: this.$route.params.userId,
