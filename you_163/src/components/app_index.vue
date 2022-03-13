@@ -17,9 +17,10 @@
     <br/>
 
 
-    <el-button class="BigLayout" v-for="article in articles" @click="toPassagedetail(article.articleId)">
+    <el-button class="BigLayout" v-for="article in articles" @click="toPassagedetail(article.articleId,this.userId)">
       <div class="myfont">
-        {{ article.briefInformation }}
+        简介：{{ article.briefInformation }}
+        userId   :{{this.userId}}
       </div>
     </el-button>
 
@@ -44,17 +45,22 @@ export default {
     return {
       search_v: '',
       active: '',
-      articles: []
+      articles: [],
+      userId: this.$route.params.userId,
     }
   },
   methods: {
-    toPassagedetail(id) {
+    toPassagedetail(articleId,userId) {
       this.$router.push({
         name: "passagedetail",
-        params: {id: id}
+        params: {
+          articleId: articleId,
+          userId: userId,
+        }
       })
     }
   },
+
   components: {footerbar},
   created() {
     axios.get('http://localhost:8181/article/all').then(_d => {
@@ -62,6 +68,7 @@ export default {
     })
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

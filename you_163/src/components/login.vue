@@ -70,14 +70,13 @@
 import axios from "axios";
 
 
-
-
 export default {
   name: "login",
   data() {
     return {
       username: '',
       passwd: '',
+      userId: ''
     }
   },
   methods: {
@@ -85,9 +84,6 @@ export default {
 
       var _this = this
 
-      const paramss = new URLSearchParams();
-      paramss.append('name', this.username);
-      paramss.append('password', this.passwd);
 
       // const instance = axios.create({});
       // instance.defaults.headers.put['Content-Type'] = 'application/json; charset=UTF-8';
@@ -96,13 +92,40 @@ export default {
 
 
       axios.post('http://localhost:8181/user/login',
-        {"username":_this.username,"password":_this.passwd}
+        {"name": _this.username, "password": _this.passwd}
       ).then(_d => {
-        console.log("登录成功")
+
+
+        console.log(_d)
+        if (_d.data === -1) {
+          console.log("账号或密码错误，请重新输入")
+
+          this.$alert('账号或密码错误，请重新输入', '错误', {
+            confirmButtonText: '确定',
+            // callback: action => {  //回调函数
+            //   this.$message({
+            //     type: 'info',
+            //     message: `action: ${action}`
+            //   });
+            // }
+          });
+        } else {
+
+          console.log("登录成功")
+
+          _this.userId = _d.data
+
+          this.$router.push({
+            name: "app_index",
+            params: {userId: _this.userId}
+          })
+        }
+
       }).catch(err => {
         console.log(err)
-        console.log("登录失败")
+        console.log("登录异常")
       });
+
     }
   },
 }

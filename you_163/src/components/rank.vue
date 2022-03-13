@@ -2,7 +2,9 @@
   <div>
 
     <el-container>
+
       <el-header>
+
         <div class="Bigtitle">
           排行榜
         </div>
@@ -12,8 +14,13 @@
 
 
         <div>
-          <el-button round class="mybtn">收益率</el-button>
-          <el-button round class="mybtn">关注度</el-button>
+
+          <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default mybtn">收益率</button>
+            <button type="button" class="btn btn-default mybtn">关注度</button>
+          </div>
+
+
         </div>
         <br/>
         <br/>
@@ -158,12 +165,21 @@ export default {
   font-weight: bold;
 }
 
+.btn-group {
+  margin: 0 auto;
+  width: 400px;
+  height: 100px;
+}
+
 .mybtn {
   /*color: #f8f8f8;*/
   text-align: center;
-  width: 1.5rem;
-  margin: .2rem .2rem 0 .8rem;
+  width: 2rem;
+  /*margin: .2rem .2rem 0 .8rem;*/
   box-shadow: .1rem .1rem .1rem #d9d9d9;
+  border-radius: .3rem;
+  display: table;
+  margin: 0 auto;
 
 }
 
