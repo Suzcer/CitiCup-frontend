@@ -34,7 +34,6 @@ export default {
   },
   created() {
     console.log(this.articleId)
-
     console.log("被触发")
     let articleurl = 'http://localhost:8181/article/' + this.articleId+"?userId="+this.userId;
     // console.log(this.articleurl)
