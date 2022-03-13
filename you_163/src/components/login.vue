@@ -94,6 +94,7 @@ export default {
 
       // axios.defaults.headers.post['Content-Type'] = 'application/json; charset=UTF-8';
 
+
       axios.post('http://localhost:8181/user/login',
         {"username":_this.username,"password":_this.passwd}
       ).then(_d => {
