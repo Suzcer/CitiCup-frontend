@@ -172,13 +172,15 @@ export default {
   mounted() {
 
     this.drawLine();
+
+    //监听刷新，否则可能丢失数据
     window.addEventListener("load", () => {
-      //写入你想要执行的代码
       this.drawLine();
     });
   },
   components: {footerbar}
 }
+
 </script>
 <style scoped>
 .headimg {
