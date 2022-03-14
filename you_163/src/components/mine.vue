@@ -125,7 +125,7 @@ export default {
 
       //获取后端三个数据
       axios.get('http://localhost:8181/user/getPreferFactorNum'+ "?userId=" + this.userId).then(_d => {
-        _this.ESGvalue = [_d.data["enum"],_d.data["snum"],_d.data["gnum"]];
+        _this.ESGvalue = [_d.data["eprefer"],_d.data["sprefer"],_d.data["gprefer"]];
         console.log("三个数据获取成功")
         console.log(_this.ESGvalue)
 
@@ -138,7 +138,7 @@ export default {
       myChart.setOption({
         title: {},
         legend: {
-          data: ['ESG因素数量']
+          data: ['ESG因素比重']
         },
         radar: {
           // shape: 'circle',
@@ -151,13 +151,13 @@ export default {
         series: [
           {
             // TODO : 难以显示数值
-            name: 'ESG因素数量',
+            name: 'ESG因素比重',
             type: 'radar',
             data: [
               {
                 value: _this.ESGvalue,
                 // value: [40,60,50],
-                name: 'ESG因素数量'
+                name: 'ESG因素比重'
               },
               // {
               //   value: [5000, 14000, 28000, 26000, 42000, 21000],
