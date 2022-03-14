@@ -65,10 +65,9 @@
           </van-col>
         </van-row>
 
-<!--        <div>-->
-<!--          <img class="logo" src="../assets/雷达图.png"/>-->
-<!--        </div>-->
-
+        <!--        <div>-->
+        <!--          <img class="logo" src="../assets/雷达图.png"/>-->
+        <!--        </div>-->
 
 
         <div class="panel panel-default">
@@ -76,7 +75,6 @@
 
           </div>
         </div>
-
 
 
         <br/>
@@ -115,25 +113,39 @@ export default {
   name: 'mine',
   data() {
     return {
-
+      ESGvalue:[],
+      userId: window.sessionStorage.getItem("userId"),
     }
   },
-  methods:{
-    drawLine(){
+  methods: {
+    drawLine() {
       let myChart = this.$echarts.init(document.getElementById('myChart'))
+      let _this=this
+
+
+      //获取后端三个数据
+      axios.get('http://localhost:8181/user/getPreferFactorNum'+ "?userId=" + this.userId).then(_d => {
+        _this.ESGvalue = [_d.data["enum"],_d.data["snum"],_d.data["gnum"]];
+        console.log("三个数据获取成功")
+        console.log(_this.ESGvalue)
+
+      }).catch(err=>{
+        console.log(err)
+        console.log("三个数据获取失败")
+      })
+
 
       myChart.setOption({
-        title: {
-        },
+        title: {},
         legend: {
           data: ['ESG因素数量']
         },
         radar: {
           // shape: 'circle',
           indicator: [
-            { name: 'E', max: 100 },
-            { name: 'S', max: 100 },
-            { name: 'G', max: 100 }
+            {name: 'E', max: 100},
+            {name: 'S', max: 100},
+            {name: 'G', max: 100}
           ]
         },
         series: [
@@ -143,7 +155,8 @@ export default {
             type: 'radar',
             data: [
               {
-                value: [50, 60, 40],
+                value: _this.ESGvalue,
+                // value: [40,60,50],
                 name: 'ESG因素数量'
               },
               // {
@@ -157,6 +170,7 @@ export default {
     }
   },
   mounted() {
+
     this.drawLine();
     window.addEventListener("load", () => {
       //写入你想要执行的代码
@@ -192,7 +206,7 @@ export default {
 
 }
 
-#myChart{
+#myChart {
 
   width: 5.8rem;
   height: 3.6rem;

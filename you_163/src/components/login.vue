@@ -73,7 +73,7 @@ export default {
   methods: {
     loginTo() {
 
-      var _this = this
+      let _this = this
 
 
       // const instance = axios.create({});
@@ -103,7 +103,6 @@ export default {
 
           console.log("登录成功")
           _this.userId = _d.data
-
           window.sessionStorage.setItem("userId",_this.userId)
         }
 
