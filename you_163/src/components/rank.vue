@@ -31,32 +31,22 @@
 
 
             <el-table
-              @row-click="toRankDetail"
               :data="ESGrank"
+              height="500"
               style="width: 100%" class="mytable"
               :row-class-name="tableRowClassName"
             >
-              <el-table-column
-                prop="FactorId"
-                width="20"
-                class="firstcol"
-              >
-              </el-table-column>
-              <el-table-column
-                prop="firstClass"
-                width="20"
-                class="secondcol"
-              >
-              </el-table-column>
-              <el-table-column
-                prop="name"
-                class="thirdcol"
-              >
-              </el-table-column>
+              <el-table-column prop="factorId" class="firstcol" label="排名"></el-table-column>
+              <el-table-column prop="firstClass" class="secondcol" label="类别"></el-table-column>
+              <el-table-column prop="name" class="thirdcol" label="因素" width="200"></el-table-column>
 
-              <el-table-column>
-                <!--   TODO 选中特定行，并实现跳转           -->
-                <el-button @click="toRankDetail()">选择</el-button>
+              <el-table-column
+                fixed="right"
+                label="操作"
+                width="50">
+                <template slot-scope="scope">
+                  <el-button @click="handleClick(scope.row)" type="text" size="small">编辑</el-button>
+                </template>
               </el-table-column>
 
             </el-table>
@@ -106,7 +96,7 @@ export default {
 
 
     // TODO : 选中特定行，并实现跳转
-    toRankDetail(row){
+    handleClick(row){
       console.log("进入该准备跳转的页面")
       console.log(row)
     }
@@ -114,49 +104,6 @@ export default {
   data() {
     return {
       ESGrank:[],
-        // [
-        //   {
-        //     rank: 1,
-        //     title: '碳排放及减排量',
-        //     attr: 'E'
-        //   },
-        //   {
-        //     rank: 2,
-        //     title: '员工管理',
-        //     attr: 'S'
-        //   },
-        //   {
-        //     rank: 3,
-        //     title: '企业治理与公司架构',
-        //     attr: 'G'
-        //   },
-        //   {
-        //     rank: 4,
-        //     title: '气候变化',
-        //     attr: 'E'
-        //   },
-        //   {
-        //     rank: 5,
-        //     title: '企业经营',
-        //     attr: 'G'
-        //   },
-        //   {
-        //     rank: 6,
-        //     title: '商业道德',
-        //     attr: 'G'
-        //   },
-        //   {
-        //     rank: 7,
-        //     title: '客户与消费者管理',
-        //     attr: 'S'
-        //   },
-        //   {
-        //     rank: 8,
-        //     title: '污染与排放',
-        //     attr: 'E'
-        //   },
-        //
-        // ],
 
       active: ''
     }
@@ -232,7 +179,7 @@ export default {
 }
 
 .mybtngroup{
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 .8rem;
 }
 
 </style>

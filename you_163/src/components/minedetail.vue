@@ -4,66 +4,67 @@
     <el-container>
       <el-header>
 
-        <div class="panel panel-default">
-          <!-- Default panel contents -->
-          <div class="panel-heading">Panel heading</div>
-          <div class="panel-body">
-            <p>...</p>
-          </div>
 
-          <!-- Table -->
-          <table class="table">
-            ...
-          </table>
-        </div>
+        <!--        <el-table-->
+        <!--          :data="tableData"-->
+        <!--          stripe-->
+        <!--          style="width: 100%">-->
+        <!--          <el-table-column-->
+        <!--            prop="date"-->
+        <!--            label="偏好因子"-->
+        <!--            width="180">-->
+        <!--          </el-table-column>-->
+        <!--          <el-table-column-->
+        <!--            prop="name"-->
+        <!--            label="偏好程度"-->
+        <!--            width="180">-->
+        <!--          </el-table-column>-->
+        <!--        </el-table>-->
 
 
-        <div class="Bigtitle">
-          我的ESG偏好
-        </div>
+        <router-link to="mine">
+          <span class="myreturn">< 返回</span>
+        </router-link>
+
+        <div class="Bigtitle">我的ESG偏好</div>
+
       </el-header>
 
       <el-main>
-        <router-link to="mine">
-      <span class="myreturn">
-        < 返回
-      </span>
-        </router-link>
 
 
         <el-button class="BigLayout">
-          <span class="myalpha">
-            E
-          </span>
-          <div class="myfont">
-            环境
-          </div>
-          <span class="myedit">
-            编辑>
-          </span>
+          <span class="myalpha">E</span>
+          <span class="myedit">编辑></span>
+
+          <el-table
+            :data="tableData"
+            height="150"
+            style="width: 100%">
+            <el-table-column
+              prop="factor"
+              label="偏好因子"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="count"
+              label="偏好程度"
+              width="100">
+            </el-table-column>
+
+          </el-table>
+
         </el-button>
-        <el-button class="BigLayout">
-          <span class="myalpha">
-            S
-          </span>
-          <div class="myfont">
-            社会
 
-          </div>
-          <span class="myedit">
-            编辑>
-          </span>
-        </el-button>
+
         <el-button class="BigLayout">
-          <span class="myalpha">
-            G
-          </span>
-          <div class="myfont">
-            治理
-          </div>
-          <span class="myedit">
-            编辑>
-          </span>
+          <span class="myalpha">S</span>
+          <span class="myedit">编辑></span>
+        </el-button>
+
+        <el-button class="BigLayout">
+          <span class="myalpha">G</span>
+          <span class="myedit">编辑></span>
         </el-button>
 
       </el-main>
@@ -71,7 +72,6 @@
 
       <el-footer>
         <footerbar>
-
         </footerbar>
       </el-footer>
     </el-container>
@@ -84,28 +84,54 @@ import footerbar from './footerbar'
 
 export default {
   name: 'minedetail',
-  methods: {
-
-
-  },
-  created:function(){
-    axios({
-      url:"/posts",
-      params:{
-        id:1
-      }
-    }).then(res=>{
-      console.log(res)
-    },err=>{
-      console.log(err)
-    })
-  },
-
   data() {
     return {
+      userId: window.sessionStorage.getItem("userId"),
+      ESGdetail:[],
+
+      tableData: [{
+        factor: '因素1',
+        count: '100',
+      }, {
+        factor: '因素2',
+        count: '49',
+      }, {
+        factor: '因素7',
+        count: '32',
+      }, {
+        factor: '因素3',
+        count: '57',
+      }]
 
     }
   },
+  methods: {
+    getDetailedPrefer(){
+      let _this=this
+      //获取详细的preferList
+
+      axios.get('http://localhost:8181/user/getDetailedPrefer'+ "?userId=" + this.userId).then(_d => {
+        _this.ESGdetail = _d.data;
+
+        console.log(_this.ESGdetail)
+        console.log("ESG详细偏好获取成功")
+
+      }).catch(err=>{
+        console.log(err)
+        console.log("ESG详细偏好获取失败")
+      })
+    }
+  },
+  mounted() {
+
+    this.getDetailedPrefer();
+
+    //监听刷新，否则可能丢失数据
+    window.addEventListener("load", () => {
+      this.getDetailedPrefer();
+    });
+  },
+
   components: {footerbar}
 }
 </script>
@@ -126,10 +152,6 @@ export default {
 }
 
 
-.myfont {
-  font-size: large;
-  color: black;
-}
 
 .BigLayout {
   height: 3rem;
@@ -141,19 +163,14 @@ export default {
 }
 
 .myalpha {
-  left: 59px;
-  top: 136px;
-  width: 24px;
-  height: 28px;
   color: rgba(0, 161, 99, 1);
   font-size: 24px;
-  margin: .2rem 6rem 5rem .2rem;
-
+  /*margin: .2rem 6rem 5rem .2rem;*/
 }
-.myedit{
-  color: #736c6c;
-  margin: .2rem .5rem 4rem 4rem;
 
+.myedit {
+  color: #736c6c;
+  margin: 0 0 4rem 4rem;
 }
 
 </style>
