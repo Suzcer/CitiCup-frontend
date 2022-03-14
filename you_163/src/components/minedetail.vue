@@ -38,16 +38,16 @@
           <span class="myedit">编辑></span>
 
           <el-table
-            :data="tableData"
+            :data="Edetail"
             height="150"
             style="width: 100%">
             <el-table-column
-              prop="factor"
+              prop="factorId"
               label="偏好因子"
               width="180">
             </el-table-column>
             <el-table-column
-              prop="count"
+              prop="preference"
               label="偏好程度"
               width="100">
             </el-table-column>
@@ -60,11 +60,47 @@
         <el-button class="BigLayout">
           <span class="myalpha">S</span>
           <span class="myedit">编辑></span>
+
+          <el-table
+            :data="Sdetail"
+            height="150"
+            style="width: 100%">
+            <el-table-column
+              prop="factorId"
+              label="偏好因子"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="preference"
+              label="偏好程度"
+              width="100">
+            </el-table-column>
+
+          </el-table>
+
         </el-button>
 
         <el-button class="BigLayout">
           <span class="myalpha">G</span>
           <span class="myedit">编辑></span>
+
+          <el-table
+            :data="Gdetail"
+            height="150"
+            style="width: 100%">
+            <el-table-column
+              prop="factorId"
+              label="偏好因子"
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="preference"
+              label="偏好程度"
+              width="100">
+            </el-table-column>
+
+          </el-table>
+
         </el-button>
 
       </el-main>
@@ -87,36 +123,45 @@ export default {
   data() {
     return {
       userId: window.sessionStorage.getItem("userId"),
-      ESGdetail:[],
+      ESGdetail: [],
+      Edetail: [],
+      Sdetail:[],
+      Gdetail:[],     //实在是不想再加一层遍历了
 
-      tableData: [{
-        factor: '因素1',
-        count: '100',
-      }, {
-        factor: '因素2',
-        count: '49',
-      }, {
-        factor: '因素7',
-        count: '32',
-      }, {
-        factor: '因素3',
-        count: '57',
-      }]
+      tableData: [
+
+        {
+          factor: '因素1',
+          count: '100',
+        }, {
+          factor: '因素2',
+          count: '49',
+        }, {
+          factor: '因素7',
+          count: '32',
+        }, {
+          factor: '因素3',
+          count: '57',
+        }]
 
     }
   },
   methods: {
-    getDetailedPrefer(){
-      let _this=this
+    getDetailedPrefer() {
+      let _this = this
       //获取详细的preferList
 
-      axios.get('http://localhost:8181/user/getDetailedPrefer'+ "?userId=" + this.userId).then(_d => {
+      axios.get('http://localhost:8181/user/getDetailedPrefer' + "?userId=" + this.userId).then(_d => {
         _this.ESGdetail = _d.data;
 
-        console.log(_this.ESGdetail)
+        // console.log(_this.ESGdetail)
         console.log("ESG详细偏好获取成功")
+        _this.Edetail=_this.ESGdetail['eprefer']
+        _this.Sdetail=_this.ESGdetail['sprefer']
+        _this.Gdetail=_this.ESGdetail['gprefer']
 
-      }).catch(err=>{
+
+      }).catch(err => {
         console.log(err)
         console.log("ESG详细偏好获取失败")
       })
@@ -150,7 +195,6 @@ export default {
   font-size: medium;
   color: #736c6c;
 }
-
 
 
 .BigLayout {

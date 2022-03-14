@@ -36,7 +36,7 @@
               style="width: 100%" class="mytable"
               :row-class-name="tableRowClassName"
             >
-              <el-table-column prop="factorId" class="firstcol" label="排名"></el-table-column>
+              <el-table-column prop="factorId" class="firstcol" label="Id"></el-table-column>
               <el-table-column prop="firstClass" class="secondcol" label="类别"></el-table-column>
               <el-table-column prop="name" class="thirdcol" label="因素" width="200"></el-table-column>
 
