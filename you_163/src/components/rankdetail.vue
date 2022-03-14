@@ -20,14 +20,19 @@ import footerbar from './footerbar'
 
 export default {
   name: 'rankdetail',
+  data() {
+    return {
+      rankId: this.$route.params.articleId,
+    }
+  },
   methods:{
 
   },
-  data() {
-    return {
 
-    }
-  },
+
+  //TODO: 后端接口尚未实现，即通过factorId调取各种详情信息，其中factorId是rank页面通过route传入的
+
+
   components: {footerbar}
 }
 </script>

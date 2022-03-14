@@ -32,7 +32,7 @@
 
             <el-table
               :data="ESGrank"
-              height="500"
+              height="450"
               style="width: 100%" class="mytable"
               :row-class-name="tableRowClassName"
             >
@@ -96,10 +96,18 @@ export default {
     },
 
 
-    // TODO : 选中特定行，并实现跳转
+    // 选中特定行，并实现跳转
     handleClick(row){
       console.log("进入该准备跳转的页面")
+      console.log(row.factorId)//获取到该id
       console.log(row)
+      this.$router.push({
+        name: "rankdetail",
+        params: {
+          rankId: row.factorId,
+        }
+      })
+
     }
   },
   data() {
