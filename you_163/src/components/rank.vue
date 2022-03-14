@@ -87,6 +87,7 @@ export default {
       axios.get('http://localhost:8181/factor/rank'+rankMethod).then(_d => {
 
         _this.ESGrank = _d.data
+
         console.log("查询成功")
       }).catch(err => {
           console.log("查询失败")
