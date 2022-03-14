@@ -103,15 +103,7 @@ export default {
         }
       )
     },
-    created() {
-      let _this=this
-      axios.get('http://localhost:8181/factor/rank1').then(_d => {
-        _this.ESGrank = _d.data;
-        console.log("初始化成功")
-      }).catch(err=>{
-        console.log("初始化失败")
-      })
-    },
+
 
     // TODO : 选中特定行，并实现跳转
     toRankDetail(row){
@@ -168,6 +160,15 @@ export default {
 
       active: ''
     }
+  },
+  created() {
+    let _this=this
+    axios.get('http://localhost:8181/factor/rank1').then(_d => {
+      _this.ESGrank = _d.data;
+      console.log("初始化成功")
+    }).catch(err=>{
+      console.log("初始化失败")
+    })
   },
   components: {footerbar}
 }

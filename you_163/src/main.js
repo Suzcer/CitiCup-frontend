@@ -11,7 +11,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import $ from 'jquery'
 import 'bootstrap3/dist/css/bootstrap.css'
 import 'bootstrap3/dist/js/bootstrap.js'
-// import 'login/signin.css'
+import * as echarts from 'echarts'
 
 import { Button,Col, Row,Search,Tab,Tabs,Swipe, SwipeItem,Grid, GridItem,Tabbar,
   TabbarItem,Image as VanImage,Divider,Cell, CellGroup} from 'vant';
@@ -22,6 +22,8 @@ Vue.use(Button).use(Row).use(Col).use(Search).use(Tab)
   .use(Tabbar).use(TabbarItem).use(VanImage).use(Divider).use(Cell)
   .use(CellGroup);
 Vue.use(ElementUI);
+Vue.prototype.$echarts = echarts
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

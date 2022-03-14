@@ -49,15 +49,14 @@
 
         <van-row>
           <el-divider></el-divider>
-          <van-col span="22">
+          <van-col span="20">
             <div>
               <span class="lititle">
               我的ESG偏好
               </span>
-
             </div>
           </van-col>
-          <van-col span="2">
+          <van-col span="4">
             <router-link to="minedetail">
               <span class="mydetail">
               详情>
@@ -66,22 +65,31 @@
           </van-col>
         </van-row>
 
-        <div>
-          <img class="logo" src="../assets/雷达图.png"/>
+<!--        <div>-->
+<!--          <img class="logo" src="../assets/雷达图.png"/>-->
+<!--        </div>-->
+
+
+
+        <div class="panel panel-default">
+          <div class="panel-body" id="myChart">
+
+          </div>
         </div>
+
 
 
         <br/>
         <br/>
         <van-row>
-          <van-col span="22">
+          <van-col span="20">
             <div>
           <span class="lititle">
             我的投资组合
           </span>
             </div>
           </van-col>
-          <van-col span="2">
+          <van-col span="4">
             <span class="mydetail">
             详情>
             </span>
@@ -102,12 +110,58 @@
 import axios from 'axios'
 import footerbar from './footerbar'
 
+
 export default {
   name: 'mine',
   data() {
     return {
-      search_v: ''
+
     }
+  },
+  methods:{
+    drawLine(){
+      let myChart = this.$echarts.init(document.getElementById('myChart'))
+
+      myChart.setOption({
+        title: {
+        },
+        legend: {
+          data: ['ESG因素数量']
+        },
+        radar: {
+          // shape: 'circle',
+          indicator: [
+            { name: 'E', max: 100 },
+            { name: 'S', max: 100 },
+            { name: 'G', max: 100 }
+          ]
+        },
+        series: [
+          {
+            // TODO : 难以显示数值
+            name: 'ESG因素数量',
+            type: 'radar',
+            data: [
+              {
+                value: [50, 60, 40],
+                name: 'ESG因素数量'
+              },
+              // {
+              //   value: [5000, 14000, 28000, 26000, 42000, 21000],
+              //   name: 'Actual Spending'
+              // }
+            ]
+          }
+        ]
+      })
+    }
+  },
+  mounted() {
+    this.drawLine();
+    window.addEventListener("load", () => {
+      //写入你想要执行的代码
+      this.drawLine();
+    });
   },
   components: {footerbar}
 }
@@ -136,6 +190,12 @@ export default {
   /*background: #ff0000;*/
   height: .6rem;
 
+}
+
+#myChart{
+
+  width: 5.8rem;
+  height: 3.6rem;
 }
 
 .certainiofo i.icon {
@@ -167,7 +227,7 @@ export default {
 
 .mydetail {
   color: #736c6c;
-  margin: .1rem 1rem 0 0;
+  margin: .1rem 0 0 0;
 }
 
 
