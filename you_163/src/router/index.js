@@ -10,6 +10,8 @@ import passagedetail from "@/components/passagedetail";
 import login from "@/components/login";
 import register from "@/components/register";
 import EorSorG from "@/components/EorSorG";
+import editpreference from "@/components/editpreference";
+import error from "@/components/error";
 
 Vue.use(Router)
 
@@ -56,6 +58,14 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: register
+    },{
+      path: '/editpreference',
+      name: 'editpreference',
+      component: editpreference
+    },{
+      path: '/error',
+      name: 'error',
+      component: error
     },
   ]
 })

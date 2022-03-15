@@ -7,14 +7,14 @@
 
 
       <el-row>
-        <el-col :span="18">
+        <el-col :span="20">
           <div class="grid-content bg-purple">
             <input type="text" class="form-control screen-input" v-model="screenText" placeholder="全站搜索文章"
                    @keyup.enter="screen()"/>
           </div>
         </el-col>
 
-        <el-col :span="6">
+        <el-col :span="4">
           <div class="grid-content bg-purple-light">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="screen()">搜索</button>
@@ -131,11 +131,11 @@ export default {
 }
 
 .BigLayout {
-  height: 2rem;
+  height: 1.5rem;
   width: 5.5rem;
   margin: .2rem .3rem .2rem .4rem;
   color: #f7f7f7;
-  box-shadow: .1rem .1rem .3rem #888888;
+  box-shadow: .1rem .1rem .3rem #ebeced;
   background: #f7f7f7;
 
 }

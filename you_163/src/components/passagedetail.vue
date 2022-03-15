@@ -1,18 +1,20 @@
 <template>
 
 
-
-  <el-container>
-    <img src="https://img.js.design/assets/img/6212f6843a30d62143d5b7d8.jpg" alt="" class="headimg"/>
-    <el-header>
+  <div>
 
 
+    <!--    <div :style="conTop"> </div>-->
+    <div :style="{backgroundImage: 'url(' + img + ')'}" class="bgimg">
 
-        <router-link to="/">
-          < 返回
-        </router-link>
-        <h1 class="hugetitle">{{ article.title }}</h1>
+      <!--    <img src="../assets/passagebg.png" alt="" class="headimg"/>-->
 
+
+      <br/>
+      <router-link to="/" class="white">
+        < 返回
+      </router-link>
+      <h1 class="hugetitle">{{ article.title }}</h1>
 
 
       <div class="demo-type">
@@ -29,18 +31,17 @@
           </el-col>
         </el-row>
       </div>
-    </el-header>
 
-    <br/>
-    <br/>
-    <br/>
 
-    <el-main>
-      <div class="articlecontent">
-        {{ article.content }}
-      </div>
-    </el-main>
-  </el-container>
+    </div>
+
+
+    <div class="articlecontent">
+
+      {{ article.content }}
+    </div>
+
+  </div>
 
 
 </template>
@@ -56,6 +57,7 @@ export default {
       article: [],
       articleId: this.$route.params.articleId,
       userId: window.sessionStorage.getItem("userId"),
+      img: require('../assets/passagebg.png')
     }
   },
   created() {
@@ -82,16 +84,36 @@ export default {
 /*}*/
 
 
-.headimg{
+.headimg {
   width: 100%;
   height: 3rem;
 }
 
 .hugetitle {
   text-align: center;
+  color: #ffffff;
 }
 
-.author{
+.author {
+  color: #FFFFFF;
   margin: .2rem 0 0 0;
+}
+
+.bgimg {
+  width: 100%;
+  height: 3rem;
+}
+
+.white {
+  color: #FFFFFF;
+  margin: .7rem 0 0 .3rem;
+}
+
+.articlecontent{
+  margin: .5rem 0 0 .5rem;
+}
+
+.demo-type{
+  margin: .5rem 0 0 .5rem;
 }
 </style>

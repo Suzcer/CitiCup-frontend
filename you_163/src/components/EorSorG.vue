@@ -3,6 +3,13 @@
   <div>
     <el-container>
 
+      <br/>
+      <router-link to="ESG">
+          <span class="myreturn">
+            < 返回
+          </span>
+      </router-link>
+
       <el-header>
         <div class="Bigtitle">
           {{EorSorG}}
@@ -10,15 +17,9 @@
       </el-header>
 
       <el-main>
-        <router-link to="ESG">
-      <span class="myreturn">
-        < 返回
-      </span>
-        </router-link>
 
         <br/>
-        <br/>
-        <br/>
+
 
 
         <ul>

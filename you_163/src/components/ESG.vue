@@ -2,19 +2,34 @@
   <div id="app">
 
 
-
     <div class="Bigtitle">
       智选因子
     </div>
 
     <div v-for="EorSorG in ESG">
-      <el-button class="BigLayout" @click="toEorSorG(EorSorG)">
-        <div class="myfont">
-          {{EorSorG}}
-        </div>
+      <el-button class="BigLayout" @click="toEorSorG(EorSorG.name)">
+
+        <el-row>
+          <el-col :span="8">
+            <div>
+<!--              <img src="src/assets/E.png">-->
+              blabla
+            </div>
+          </el-col>
+
+          <el-col :span="16">
+            <h5 class="myfont">
+              {{ EorSorG.name }}
+            </h5>
+            <el-divider></el-divider>
+            <h5 class="myfont">
+              {{EorSorG.description}}
+            </h5>
+          </el-col>
+        </el-row>
+
       </el-button>
     </div>
-
 
 
     <footerbar>
@@ -45,7 +60,21 @@ export default {
   data() {
     return {
       search_v: '',
-      ESG:['环境','社会','治理']
+      ESG: [
+        {
+          name:'环境',
+          description: 'Environment',
+
+        },
+        {
+          name: '社会',
+          description: 'Society',
+        },
+        {
+          name: '治理',
+          description: 'Governance',
+        },
+      ],
     }
   },
   components: {footerbar}
@@ -67,11 +96,11 @@ export default {
 }
 
 .BigLayout {
-  height: 3.5rem;
+  height: 2.8rem;
   width: 5.5rem;
   margin: .2rem .3rem .2rem .4rem;
   color: #f7f7f7;
-  box-shadow: .1rem .1rem .3rem #888888;
+  box-shadow: .1rem .1rem .3rem #cfcfcf;
   background: #f7f7f7;
 }
 </style>

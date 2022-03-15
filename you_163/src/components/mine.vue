@@ -5,7 +5,7 @@
 
       <el-header>
         <van-row>
-          <van-col span="8">
+          <van-col span="12">
             <van-image
               round
               width="1.5rem"
@@ -24,22 +24,24 @@
           </van-col>
         </van-row>
 
-        <van-row class="certainiofo">
-          <van-col span="8">
-            <i class="icon iconfont icon_1"></i>
-            <span></span>
-            浏览记录
-          </van-col>
+        <div @click="toerror()">
+          <van-row class="certainiofo">
+            <van-col span="8">
+              <i class="icon iconfont icon_1"></i>
+              <span></span>
+              浏览记录
+            </van-col>
 
-          <van-col span="8">
-            <i class="icon iconfont icon_2"></i>
-            收藏文章
-          </van-col>
-          <van-col span="8">
-            <i class="icon iconfont icon_3"></i>
-            收藏基金
-          </van-col>
-        </van-row>
+            <van-col span="8">
+              <i class="icon iconfont icon_2"></i>
+              收藏文章
+            </van-col>
+            <van-col span="8">
+              <i class="icon iconfont icon_3"></i>
+              收藏基金
+            </van-col>
+          </van-row>
+        </div>
 
       </el-header>
 
@@ -113,23 +115,23 @@ export default {
   name: 'mine',
   data() {
     return {
-      ESGvalue:[],
+      ESGvalue: [],
       userId: window.sessionStorage.getItem("userId"),
     }
   },
   methods: {
     drawLine() {
       let myChart = this.$echarts.init(document.getElementById('myChart'))
-      let _this=this
+      let _this = this
 
 
       //获取后端三个数据
-      axios.get('http://localhost:8181/user/getPreferFactorNum'+ "?userId=" + this.userId).then(_d => {
-        _this.ESGvalue = [_d.data["eprefer"],_d.data["sprefer"],_d.data["gprefer"]];
+      axios.get('http://localhost:8181/user/getPreferFactorNum' + "?userId=" + this.userId).then(_d => {
+        _this.ESGvalue = [_d.data["eprefer"], _d.data["sprefer"], _d.data["gprefer"]];
         console.log("三个数据获取成功")
         console.log(_this.ESGvalue)
 
-      }).catch(err=>{
+      }).catch(err => {
         console.log(err)
         console.log("三个数据获取失败")
       })
@@ -167,7 +169,12 @@ export default {
           }
         ]
       })
-    }
+    },
+    toerror() {
+      this.$router.push({
+        name: "error",
+      })
+    },
   },
   mounted() {
 

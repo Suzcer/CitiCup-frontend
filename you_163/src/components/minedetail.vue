@@ -21,7 +21,7 @@
         <!--          </el-table-column>-->
         <!--        </el-table>-->
 
-
+        <br/>
         <router-link to="mine">
           <span class="myreturn">< 返回</span>
         </router-link>
@@ -35,7 +35,9 @@
 
         <el-button class="BigLayout">
           <span class="myalpha">E</span>
-          <span class="myedit">编辑></span>
+
+          <span class="myedit" @click="editpreference('E')">编辑></span>
+
 
           <el-table
             :data="Edetail"
@@ -59,7 +61,7 @@
 
         <el-button class="BigLayout">
           <span class="myalpha">S</span>
-          <span class="myedit">编辑></span>
+          <span class="myedit" @click="editpreference('S')">编辑></span>
 
           <el-table
             :data="Sdetail"
@@ -82,7 +84,7 @@
 
         <el-button class="BigLayout">
           <span class="myalpha">G</span>
-          <span class="myedit">编辑></span>
+          <span class="myedit" @click="editpreference('G')">编辑></span>
 
           <el-table
             :data="Gdetail"
@@ -125,24 +127,8 @@ export default {
       userId: window.sessionStorage.getItem("userId"),
       ESGdetail: [],
       Edetail: [],
-      Sdetail:[],
-      Gdetail:[],     //实在是不想再加一层遍历了
-
-      tableData: [
-
-        {
-          factor: '因素1',
-          count: '100',
-        }, {
-          factor: '因素2',
-          count: '49',
-        }, {
-          factor: '因素7',
-          count: '32',
-        }, {
-          factor: '因素3',
-          count: '57',
-        }]
+      Sdetail: [],
+      Gdetail: [],     //实在是不想再加一层遍历了
 
     }
   },
@@ -156,15 +142,43 @@ export default {
 
         // console.log(_this.ESGdetail)
         console.log("ESG详细偏好获取成功")
-        _this.Edetail=_this.ESGdetail['eprefer']
-        _this.Sdetail=_this.ESGdetail['sprefer']
-        _this.Gdetail=_this.ESGdetail['gprefer']
+        _this.Edetail = _this.ESGdetail['eprefer']
+        _this.Sdetail = _this.ESGdetail['sprefer']
+        _this.Gdetail = _this.ESGdetail['gprefer']
 
 
       }).catch(err => {
         console.log(err)
         console.log("ESG详细偏好获取失败")
       })
+    },
+    editpreference(Char) {
+
+      let _this = this
+
+      //接收字符，确认需要编辑的是E还是S还是G
+      if (Char === 'E') {
+        this.$router.push({
+          name: "editpreference",
+          params: {
+            editdetail: _this.Edetail,
+          }
+        })
+      } else if (Char === 'S') {
+        this.$router.push({
+          name: "editpreference",
+          params: {
+            editdetail: _this.Sdetail,
+          }
+        })
+      } else if (Char === 'G') {
+        this.$router.push({
+          name: "editpreference",
+          params: {
+            editdetail: _this.Gdetail,
+          }
+        })
+      }
     }
   },
   mounted() {
@@ -184,7 +198,6 @@ export default {
 <style scoped>
 
 .Bigtitle {
-  margin: .5rem 0 0 0;
   font-size: x-large;
   text-align: center;
   font-weight: bold;
