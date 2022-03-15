@@ -32,7 +32,7 @@
 
             <el-table
               :data="ESGrank"
-              height="450"
+              height="420"
               style="width: 100%" class="mytable"
               :row-class-name="tableRowClassName"
             >

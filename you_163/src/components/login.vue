@@ -100,10 +100,16 @@ export default {
             // }
           });
         } else {
-
           console.log("登录成功")
           _this.userId = _d.data
           window.sessionStorage.setItem("userId",_this.userId)
+          this.$message({
+            message: '登录成功',
+            type: 'success'
+          });
+          this.$router.push({
+            name: "app_index",
+          })
         }
 
       }).catch(err => {

@@ -96,6 +96,23 @@
           </van-col>
         </van-row>
 
+        <el-table
+          :data="Recommend"
+          height="150"
+          style="width: 100%">
+          <el-table-column
+            prop="recommendName"
+            label="系统推荐基金"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="gainRate"
+            label="收益率"
+            width="100">
+          </el-table-column>
+
+        </el-table>
+
 
       </el-main>
 
@@ -117,6 +134,14 @@ export default {
     return {
       ESGvalue: [],
       userId: window.sessionStorage.getItem("userId"),
+      Recommend:[
+        {
+          recommendName: 12,
+          gainRate: 12
+
+        }
+      ]
+
     }
   },
   methods: {

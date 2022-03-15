@@ -5,21 +5,6 @@
       <el-header>
 
 
-        <!--        <el-table-->
-        <!--          :data="tableData"-->
-        <!--          stripe-->
-        <!--          style="width: 100%">-->
-        <!--          <el-table-column-->
-        <!--            prop="date"-->
-        <!--            label="偏好因子"-->
-        <!--            width="180">-->
-        <!--          </el-table-column>-->
-        <!--          <el-table-column-->
-        <!--            prop="name"-->
-        <!--            label="偏好程度"-->
-        <!--            width="180">-->
-        <!--          </el-table-column>-->
-        <!--        </el-table>-->
 
         <br/>
         <router-link to="mine">
@@ -44,7 +29,7 @@
             height="150"
             style="width: 100%">
             <el-table-column
-              prop="factorId"
+              prop="factorName"
               label="偏好因子"
               width="180">
             </el-table-column>
@@ -68,7 +53,7 @@
             height="150"
             style="width: 100%">
             <el-table-column
-              prop="factorId"
+              prop="factorName"
               label="偏好因子"
               width="180">
             </el-table-column>
@@ -91,7 +76,7 @@
             height="150"
             style="width: 100%">
             <el-table-column
-              prop="factorId"
+              prop="factorName"
               label="偏好因子"
               width="180">
             </el-table-column>
@@ -141,7 +126,6 @@ export default {
         _this.ESGdetail = _d.data;
 
         // console.log(_this.ESGdetail)
-        console.log("ESG详细偏好获取成功")
         _this.Edetail = _this.ESGdetail['eprefer']
         _this.Sdetail = _this.ESGdetail['sprefer']
         _this.Gdetail = _this.ESGdetail['gprefer']

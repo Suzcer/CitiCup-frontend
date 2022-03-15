@@ -4,20 +4,37 @@
 
 
     <br/>
-    <router-link to="rank">
+    <router-link to="rank" class="myreturn">
       < 返回
     </router-link>
 
     <div>
-      <div class="Bigtitle">我的ESG偏好</div>
+      <div class="Bigtitle">碳排放及排放量</div>
     </div>
 
     <div>
-      <el-button class="BigLayout" >
+      <el-button class="BigLayout">
         <div class="myfont">
           简介：一些简介
         </div>
       </el-button>
+
+      <div class="BigLayout">
+
+        <el-row>
+          <el-col :span="12">
+            <h4 class="littleTitle">
+              关注基金
+            </h4>
+          </el-col>
+          <el-col :span="12">
+            <div>
+
+            </div>
+          </el-col>
+        </el-row>
+
+      </div>
     </div>
 
     <footerbar>
@@ -37,9 +54,7 @@ export default {
       rankId: this.$route.params.articleId,
     }
   },
-  methods:{
-
-  },
+  methods: {},
 
 
   //TODO: 后端接口尚未实现，即通过factorId调取各种详情信息，其中factorId是rank页面通过route传入的
@@ -50,8 +65,9 @@ export default {
 </script>
 
 <style scoped>
+
 .Bigtitle {
-  margin: .5rem 0 0 0;
+  margin: 0 0 0 0;
   font-size: x-large;
   text-align: center;
   font-weight: bold;
@@ -59,7 +75,7 @@ export default {
 
 .myfont {
   font-size: large;
-  color: black;
+  color: #858585;
 }
 
 .BigLayout {
@@ -71,5 +87,19 @@ export default {
   background: #f7f7f7;
 
 }
+
+.littleTitle{
+  color: black;
+  margin: .2rem 0 0 .2rem;
+  font-weight: bold;
+}
+
+.myreturn {
+  margin: .5rem 0 0 .3rem;
+  font-size: medium;
+  color: #736c6c;
+}
+
+
 </style>
 

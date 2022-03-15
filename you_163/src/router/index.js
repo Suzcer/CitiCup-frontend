@@ -12,6 +12,7 @@ import register from "@/components/register";
 import EorSorG from "@/components/EorSorG";
 import editpreference from "@/components/editpreference";
 import error from "@/components/error";
+import fund from "@/components/fund";
 
 Vue.use(Router)
 
@@ -66,6 +67,10 @@ export default new Router({
       path: '/error',
       name: 'error',
       component: error
+    },{
+      path: '/fund',
+      name: 'fund',
+      component: fund
     },
   ]
 })

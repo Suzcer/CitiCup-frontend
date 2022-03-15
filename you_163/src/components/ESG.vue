@@ -7,7 +7,7 @@
     </div>
 
     <div v-for="EorSorG in ESG">
-      <el-button class="BigLayout" @click="toEorSorG(EorSorG.name)">
+      <el-button class="BigLayout" @click="toEorSorG(EorSorG)">
 
         <el-row>
           <el-col :span="8">
@@ -64,15 +64,17 @@ export default {
         {
           name:'环境',
           description: 'Environment',
-
+          id: 'E'
         },
         {
           name: '社会',
           description: 'Society',
+          id: 'S'
         },
         {
           name: '治理',
           description: 'Governance',
+          id: 'G'
         },
       ],
     }
