@@ -156,7 +156,6 @@ export default {
   color: #f7f7f7;
   box-shadow: .1rem .1rem .1rem #ebeced;
   background: #f7f7f7;
-
 }
 
 .fundItem:hover {
