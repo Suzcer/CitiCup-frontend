@@ -124,6 +124,7 @@
         <el-link type="primary" href="https://www.baidu.com">基金网站</el-link>
 
       </div>
+
       <footerbar>
       </footerbar>
     </el-footer>
