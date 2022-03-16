@@ -5,7 +5,7 @@ import ESG from '@/components/ESG';
 import rank from '@/components/rank';
 import mine from '@/components/mine';
 import minedetail from '@/components/minedetail';
-import rankdetail from "@/components/rankdetail";
+import factordetail from "@/components/factordetail";
 import passagedetail from "@/components/passagedetail";
 import login from "@/components/login";
 import register from "@/components/register";
@@ -44,9 +44,9 @@ export default new Router({
       name: 'EorSorG',
       component: EorSorG
     }, {
-      path: '/rankdetail',
-      name: 'rankdetail',
-      component: rankdetail
+      path: '/factordetail',
+      name: 'factordetail',
+      component: factordetail
     },{
       path: '/passagedetail/:id',
       name: 'passagedetail',

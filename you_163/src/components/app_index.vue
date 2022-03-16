@@ -4,24 +4,25 @@
 
     <div class="input-group mysearch">
       <!-- 搜索框 -->
-
-
       <el-row>
-        <el-col :span="20">
-          <div class="grid-content bg-purple">
-            <input type="text" class="form-control screen-input" v-model="screenText" placeholder="全站搜索文章"
-                   @keyup.enter="screen()"/>
-          </div>
-        </el-col>
 
-        <el-col :span="4">
-          <div class="grid-content bg-purple-light">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="screen()">搜索</button>
+
+          <el-col :span="18">
+            <div class="grid-content bg-purple">
+              <input type="text" class="form-control screen-input" v-model="screenText" placeholder="全站搜索文章"
+                     @keyup.enter="screen()" style="border-radius: .1rem"/>
             </div>
+          </el-col>
 
-          </div>
-        </el-col>
+          <el-col :span="4">
+            <div class="grid-content bg-purple-light">
+              <div class="input-group-append">
+                <el-button type="primary" class="searchbtn" @click="screen()">搜索</el-button>
+<!--                <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="screen()">搜索</button>-->
+              </div>
+
+            </div>
+          </el-col>
       </el-row>
     </div>
 
@@ -83,10 +84,9 @@ export default {
         console.log("查询成功")
         console.log(_this.LookupList)
 
-        _this.articles=_this.LookupList
+        _this.articles = _this.LookupList
 
       }).catch(err => {
-
           console.log("查询失败")
         }
       )
@@ -140,10 +140,18 @@ export default {
 
 }
 
+.searchbtn{
+  height: .55rem;
+  text-align: center;
+}
+
 .mysearch {
   margin: .2rem .3rem .2rem .3rem;
   width: 6rem;
+  /*border-radius: 1rem;*/
 
 }
+
+
 
 </style>

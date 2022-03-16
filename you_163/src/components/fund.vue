@@ -8,9 +8,14 @@
 
       <div>
         <br/>
-        <router-link to="rankdetail" class="myreturn">
-          < 返回
-        </router-link>
+<!--        <router-link to="factordetail" class="myreturn">-->
+<!--          < 返回-->
+<!--        </router-link>-->
+        <div>
+          <span  onclick="window.history.go(-1)">
+            < 返回
+          </span>
+        </div>
 
         <div>
           <div class="Bigtitle">基金一</div>
@@ -35,6 +40,18 @@ import footerbar from "./footerbar";
 
 export default {
   name: "fund",
+  data() {
+    return {
+
+    }
+  },
+  created() {
+
+  },
+  methods:{
+
+  },
+
   components: {footerbar}
 }
 </script>

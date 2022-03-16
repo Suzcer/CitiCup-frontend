@@ -102,9 +102,9 @@ export default {
       console.log(row.factorId)//获取到该id
       console.log(row)
       this.$router.push({
-        name: "rankdetail",
+        name: "factordetail",
         params: {
-          rankId: row.factorId,
+          factorId: row.factorId,
         }
       })
 
@@ -184,7 +184,7 @@ export default {
 }
 
 .mytable {
-  box-shadow: .1rem .1rem .3rem #888888;
+  box-shadow: .1rem .1rem .2rem #ebeced;
 }
 
 .mybtngroup{

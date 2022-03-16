@@ -20,32 +20,31 @@
 
 
         <template>
-          <el-table
-            :data="EorSorGList"
-            style="width: 100%">
-            <el-table-column type="expand">
-              <template slot-scope="props">
-                <el-form label-position="left" inline class="demo-table-expand">
+          <el-collapse v-model="activateName">
+            <el-collapse-item v-for="(value,key) in EorSorGList" :key="key" v-bind:name="key" v-bind:title='key'>
 
-                  <el-form-item >
+              <div v-for="item in value" class="eachitem">
 
-
-                    <span v-for="eachitem in props.row.subitem">
-                      {{eachitem}}
-                      <br/>
+                <br/>
+                <el-row>
+                  <el-col :span="20">
+                    {{ item.name }}
+                  </el-col>
+                  <el-col :span="4">
+                    <span @click="toFactorDetail(item.id)">
+                      >详情
                     </span>
-                  </el-form-item>
+                  </el-col>
 
-                </el-form>
-              </template>
-            </el-table-column>
-            <el-table-column
-              prop="item">
-            </el-table-column>
+                </el-row>
 
-          </el-table>
+              </div>
+
+
+            </el-collapse-item>
+          </el-collapse>
+
         </template>
-
 
 
       </el-main>
@@ -69,37 +68,34 @@ export default {
   name: 'EorSorG',
   data() {
     return {
-      EorSorGList: [
-        {
-          item: '第一项',
-          subitem:[
-            '11','12','13','14'
-          ]
-        },{
-          item: '第二项',
-          subitem:[
-            '21','22','23','24'
-          ]
-        }
-      ],
+      EorSorGList: {},
       name: '',
-      EorSorG: this.$route.params.EorSorG,//传进来的是{id..description.. }
-
+      EorSorG: this.$route.params.EorSorG,    //传进来的是{id..description.. }
+      activateName: [],
     }
   },
-  methods: {},
-//   created() {
-// // 又写在了methods里面...
-//     let _this = this
-//
-//     console.log(_this.EorSorG)
-//     axios.get('http://localhost:8181/factor/getFactorList?firstClass=' + _this.EorSorG.id).then(_d => {
-//       _this.EorSorGList = _d.data;
-//       console.log(_d.data)
-//     }).catch(err => {
-//       console.log("失败")
-//     })
-//   },
+  methods: {
+    toFactorDetail(factorId){
+      this.$router.push({
+        name: "factordetail",
+        params: {
+          factorId: factorId,
+        }
+      })
+    }
+  },
+  created() {
+// 又写在了methods里面...
+    let _this = this
+
+    console.log(_this.EorSorG)
+    axios.get('http://localhost:8181/factor/getFactorList?firstClass=' + _this.EorSorG.id).then(_d => {
+      _this.EorSorGList = _d.data;
+      console.log(_d.data)
+    }).catch(err => {
+      console.log("失败")
+    })
+  },
   components: {footerbar},
 }
 </script>
@@ -134,6 +130,13 @@ export default {
   color: black;
   font-size: x-large;
 }
+
+
+.eachitem:hover {
+  color: #bb6565;
+  background: #f3f3f3;
+}
+
 
 </style>
 
