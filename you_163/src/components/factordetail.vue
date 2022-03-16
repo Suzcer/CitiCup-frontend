@@ -4,14 +4,14 @@
 
 
     <br/>
-    <!--    <router-link to="ESG" class="myreturn">-->
-    <!--      < 返回-->
-    <!--    </router-link>-->
-    <div>
-      <span onclick="window.history.go(-1)" class="myreturn">
-        < 返回
-      </span>
-    </div>
+        <router-link to="ESG" class="myreturn">
+          < 返回
+        </router-link>
+<!--    <div>-->
+<!--      <span onclick="window.history.go(-1)" class="myreturn">-->
+<!--        < 返回-->
+<!--      </span>-->
+<!--    </div>-->
 
     <div>
       <div class="Bigtitle">{{ factordetail.name }}</div>
@@ -40,15 +40,18 @@
 
         <div v-for="item in aaa" class="fundItem">
           <el-row>
+
             <el-col :span="20">
               <i class="el-icon-s-help"></i>
-              {{ item }}
+              {{ item.name }}
             </el-col>
+
             <el-col :span="4">
-            <span @click="toFundDetail(item.id)">
+            <span @click="toFundDetail(item.fundId)">
               >详情
             </span>
             </el-col>
+
           </el-row>
         </div>
 
@@ -72,7 +75,18 @@ export default {
     return {
       factorId: this.$route.params.factorId,
       factordetail: {},
-      aaa: ["基金一", "基金二", "基金三"]
+      aaa: [
+        {
+          name: "方正富邦ESG主题投",
+          profit_year: -7.0E-4,
+          profit_6month:0.0881,
+          profit_3month:-0.0167,
+          profit_1month:-0.0707,
+          code: "010071",
+          type:"混合型",
+          fundId: 9
+        }
+      ]
     }
   },
   methods: {
