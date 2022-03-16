@@ -145,6 +145,7 @@ export default {
   margin: .5rem 0 0 .3rem;
   font-size: medium;
   color: #736c6c;
+
 }
 
 
