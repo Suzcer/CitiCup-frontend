@@ -2,11 +2,21 @@
 
   <div>
 
-
     <br/>
+    <el-row>
+      <el-col :span="20">
+
         <router-link to="ESG" class="myreturn">
-          < 返回
+          <i class="el-icon-caret-left"></i>
         </router-link>
+      </el-col>
+      <el-col :span="4">
+        <div class="myicon" @click="already">
+          <i class="el-icon-s-opportunity"></i>
+        </div>
+      </el-col>
+    </el-row>
+
 <!--    <div>-->
 <!--      <span onclick="window.history.go(-1)" class="myreturn">-->
 <!--        < 返回-->
@@ -98,6 +108,12 @@ export default {
           fundId: fundId,
         }
       })
+    },
+    already(){
+      this.$message({
+        message: '已收藏，请前往个人中心查看',
+        type: 'success'
+      });
     }
   },
   created() {
@@ -157,7 +173,7 @@ export default {
 
 .myreturn {
   margin: .5rem 0 0 .3rem;
-  font-size: medium;
+  font-size: large;
   color: #736c6c;
 
 }
@@ -177,6 +193,10 @@ export default {
 
   color: #bb6565;
   background: #f3f3f3;
+}
+
+.myicon{
+  font-size: .6rem;
 }
 
 </style>

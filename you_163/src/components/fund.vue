@@ -13,7 +13,7 @@
 <!--        </router-link>-->
         <div class="myreturn">
           <span  onclick="window.history.go(-1)">
-            < 返回
+            <i class="el-icon-caret-left"></i>
           </span>
         </div>
 
@@ -122,7 +122,6 @@
       <div class="myfooter" >
         具体信息详见
         <el-link type="primary" href="https://www.baidu.com">基金网站</el-link>
-
       </div>
 
       <footerbar>
@@ -183,7 +182,7 @@ export default {
 
 .myreturn {
   margin: 0 0 0 0;
-  font-size: medium;
+  font-size: large;
   color: #736c6c;
 }
 

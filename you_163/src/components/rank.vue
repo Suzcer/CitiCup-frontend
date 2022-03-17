@@ -15,14 +15,21 @@
 
         <div>
 
-          <div class="btn-group mybtngroup" role="group" >
-            <button type="button" class="btn btn-default mybtn" @click="fetchRank(1)">收益率</button>
-            <button type="button" class="btn btn-default mybtn" @click="fetchRank(2)">关注度</button>
+          <div class="btn-group mybtngroup" role="group">
+            <button type="button" class="btn btn-default mybtn" @click="fetchRank(1)">
+              <div class="subtitle">
+                <i class="el-icon-magic-stick"></i>收益率
+              </div>
+            </button>
+            <button type="button" class="btn btn-default mybtn" @click="fetchRank(2)">
+              <div class="subtitle">
+                <i class="el-icon-money"></i>关注度
+              </div>
+            </button>
           </div>
 
 
         </div>
-
 
 
         <div>
@@ -43,7 +50,7 @@
               <el-table-column
                 fixed="right"
                 label="操作"
-                width="50">
+                width="45">
                 <template slot-scope="scope">
                   <el-button @click="handleClick(scope.row)" type="text" size="small">编辑</el-button>
                 </template>
@@ -81,10 +88,10 @@ export default {
       return '';
     },
 
-    fetchRank(rankMethod){
+    fetchRank(rankMethod) {
 
-      let _this=this
-      axios.get('http://localhost:8181/factor/rank'+rankMethod).then(_d => {
+      let _this = this
+      axios.get('http://localhost:8181/factor/rank' + rankMethod).then(_d => {
 
         _this.ESGrank = _d.data
 
@@ -97,7 +104,7 @@ export default {
 
 
     // 选中特定行，并实现跳转
-    handleClick(row){
+    handleClick(row) {
       console.log("进入该准备跳转的页面")
       console.log(row.factorId)//获取到该id
       console.log(row)
@@ -112,17 +119,17 @@ export default {
   },
   data() {
     return {
-      ESGrank:[],
+      ESGrank: [],
 
       active: ''
     }
   },
   created() {
-    let _this=this
+    let _this = this
     axios.get('http://localhost:8181/factor/rank1').then(_d => {
       _this.ESGrank = _d.data;
       console.log("初始化成功")
-    }).catch(err=>{
+    }).catch(err => {
       console.log("初始化失败")
     })
   },
@@ -138,6 +145,10 @@ export default {
 
 .el-table .success-row {
   background: #f0f9eb;
+}
+
+.btn:focus {
+  color: #f26b6b;
 }
 
 .Bigtitle {
@@ -184,11 +195,16 @@ export default {
 }
 
 .mytable {
-  box-shadow: .1rem .1rem .2rem #ebeced;
+  margin: 0 0 0 0;
+  box-shadow: .1rem .1rem .1rem #ebeced;
 }
 
-.mybtngroup{
+.mybtngroup {
   margin: 0 0 0 .8rem;
 }
 
+
+.subtitle{
+  font-size: large;
+}
 </style>

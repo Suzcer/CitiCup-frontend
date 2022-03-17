@@ -6,7 +6,7 @@
       <br/>
       <router-link to="ESG">
           <span class="myreturn">
-            < 返回
+            <i class="el-icon-caret-left"></i>
           </span>
       </router-link>
 
@@ -20,7 +20,7 @@
 
 
         <template>
-          <el-collapse v-model="activateName">
+          <el-collapse v-model="activateName"  v-loading="loading">
             <el-collapse-item v-for="(value,key) in EorSorGList" :key="key" v-bind:name="key" v-bind:title='key'>
 
               <div v-for="item in value" class="eachitem">
@@ -39,8 +39,6 @@
                 </el-row>
 
               </div>
-
-
             </el-collapse-item>
           </el-collapse>
 
@@ -72,6 +70,7 @@ export default {
       name: '',
       EorSorG: this.$route.params.EorSorG,    //传进来的是{id..description.. }
       activateName: [],
+      loading: true,
     }
   },
   methods: {
@@ -82,19 +81,23 @@ export default {
           factorId: factorId,
         }
       })
+    },
+    getData(){
+      let _this = this
+      _this.loading=true
+
+      console.log(_this.EorSorG)
+      axios.get('http://localhost:8181/factor/getFactorList?firstClass=' + _this.EorSorG.id).then(_d => {
+        _this.EorSorGList = _d.data;
+        console.log(_d.data)
+        _this.loading=false
+      }).catch(err => {
+        console.log("失败")
+      })
     }
   },
   created() {
-// 又写在了methods里面...
-    let _this = this
-
-    console.log(_this.EorSorG)
-    axios.get('http://localhost:8181/factor/getFactorList?firstClass=' + _this.EorSorG.id).then(_d => {
-      _this.EorSorGList = _d.data;
-      console.log(_d.data)
-    }).catch(err => {
-      console.log("失败")
-    })
+    this.getData()
   },
   components: {footerbar},
 }
@@ -111,7 +114,7 @@ export default {
 .myreturn {
 
   margin: 0 0 0 .3rem;
-  font-size: medium;
+  font-size: large;
   color: #736c6c;
 }
 

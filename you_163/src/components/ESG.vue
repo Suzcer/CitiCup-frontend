@@ -11,9 +11,9 @@
 
         <el-row>
           <el-col :span="8">
-            <div>
+            <div class="bigESG">
 <!--              <img src="src/assets/E.png">-->
-              blabla
+              {{EorSorG.id}}
             </div>
           </el-col>
 
@@ -102,7 +102,12 @@ export default {
   width: 5.5rem;
   margin: .2rem .3rem .2rem .4rem;
   color: #f7f7f7;
-  box-shadow: .1rem .1rem .3rem #cfcfcf;
+  box-shadow: .1rem .1rem .1rem #cfcfcf;
   background: #f7f7f7;
+}
+
+.bigESG{
+  font-size: 2rem;
+  color: #00a98f;
 }
 </style>

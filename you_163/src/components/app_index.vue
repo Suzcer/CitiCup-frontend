@@ -6,18 +6,27 @@
       <!-- 搜索框 -->
       <el-row>
 
+        <el-col :span="3">
 
-          <el-col :span="18">
+          <div>
+
+            <img class="media-object" src="../assets/picture/logo.png" alt="...">
+
+          </div>
+        </el-col>
+
+          <el-col :span="16">
             <div class="grid-content bg-purple">
               <input type="text" class="form-control screen-input" v-model="screenText" placeholder="全站搜索文章"
                      @keyup.enter="screen()" style="border-radius: .1rem"/>
+
             </div>
           </el-col>
 
-          <el-col :span="4">
+          <el-col :span="3">
             <div class="grid-content bg-purple-light">
               <div class="input-group-append">
-                <el-button type="primary" class="searchbtn" @click="screen()">搜索</el-button>
+                <el-button type="primary" class="searchbtn" icon="el-icon-search" @click="screen()"></el-button>
 <!--                <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="screen()">搜索</button>-->
               </div>
 
@@ -61,7 +70,7 @@ export default {
       // userId: this.$route.params.userId,
       userId: window.sessionStorage.getItem("userId"),
       screenText: '',
-      LookupList: []
+      LookupList: [],
     }
   },
   methods: {
@@ -146,7 +155,7 @@ export default {
 }
 
 .mysearch {
-  margin: .2rem .3rem .2rem .3rem;
+  margin: .4rem .3rem .2rem .3rem;
   width: 6rem;
   /*border-radius: 1rem;*/
 

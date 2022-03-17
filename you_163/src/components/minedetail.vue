@@ -8,7 +8,7 @@
 
         <br/>
         <router-link to="mine">
-          <span class="myreturn">< 返回</span>
+          <span class="myreturn"><i class="el-icon-caret-left"></i></span>
         </router-link>
 
         <div class="Bigtitle">我的ESG偏好</div>
@@ -189,7 +189,7 @@ export default {
 
 .myreturn {
   margin: .5rem 0 0 .3rem;
-  font-size: medium;
+  font-size: large;
   color: #736c6c;
 }
 

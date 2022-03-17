@@ -5,23 +5,35 @@
 
       <el-header>
         <van-row>
-          <van-col span="12">
+          <van-col span="9">
             <van-image
               round
-              width="1.5rem"
-              height="1.5rem"
+              width="1.2rem"
+              height="1.2rem"
               src="https://img.yzcdn.cn/vant/cat.jpeg"
               class="headimg"
             />
           </van-col>
-          <van-col span="8">
 
-            <div>
-              <router-link to="login">
-                <van-button type="warning" class="loginbtn">登录</van-button>
-              </router-link>
+          <van-col span="4">
+            <div class="username">
+              {{ username }}
             </div>
           </van-col>
+
+          <van-col span="9">
+            <div class="editinfo" @click="editinfo">
+              编辑资料
+            </div>
+          </van-col>
+
+          <van-col span="2">
+            <div class="setting" @click="toSetting()">
+              <i class="el-icon-setting"></i>
+            </div>
+          </van-col>
+
+
         </van-row>
 
         <div @click="toerror()">
@@ -80,7 +92,6 @@
 
 
         <br/>
-        <br/>
         <van-row>
           <van-col span="20">
             <div>
@@ -134,14 +145,14 @@ export default {
     return {
       ESGvalue: [],
       userId: window.sessionStorage.getItem("userId"),
-      Recommend:[
+      Recommend: [
         {
           recommendName: 12,
           gainRate: 12
 
         }
-      ]
-
+      ],
+      username: window.sessionStorage.getItem("username"),
     }
   },
   methods: {
@@ -200,6 +211,15 @@ export default {
         name: "error",
       })
     },
+    toSetting() {
+      this.$router.push({
+        name: "login",
+        params: {}
+      })
+    },
+    editinfo(){
+
+    }
   },
   mounted() {
 
@@ -232,6 +252,13 @@ export default {
   border-radius: .05rem;
   border: 1px solid #0078d4;
 }
+
+.setting {
+
+  margin: .5rem 0 0 0;
+  font-size: .5rem;
+}
+
 
 .certainiofo {
   text-align: center;
@@ -268,7 +295,7 @@ export default {
 }
 
 .lititle {
-  margin: .8rem .1rem 0 .4rem;
+  margin: .5rem .1rem 0 .1rem;
   font-size: .3rem;
   font-weight: bold;
 }
@@ -277,6 +304,23 @@ export default {
   color: #736c6c;
   margin: .1rem 0 0 0;
 }
+
+.username {
+  margin: .65rem 0 0 0;
+  font-weight: bold;
+  font-size: .32rem;
+}
+
+.editinfo{
+  background: #1a26ae;
+  border-radius: .2rem;
+  text-align: center;
+  color: #FFFFFF;
+  width: 1.2rem;
+  margin: .68rem  0 0 0;
+  font-size: .22rem;
+}
+
 
 
 </style>

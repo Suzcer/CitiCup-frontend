@@ -4,7 +4,7 @@
     <br/>
     <router-link to="minedetail">
         <span class="myreturn">
-          < 返回
+          <i class="el-icon-caret-left"></i>
         </span>
     </router-link>
 
@@ -109,7 +109,7 @@ export default {
 
 .myreturn {
   margin: 0 0 0 .3rem;
-  font-size: medium;
+  font-size: large;
   color: #736c6c;
 }
 

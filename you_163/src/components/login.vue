@@ -13,10 +13,9 @@
 
   <div>
     <br/>
-    <br/>
     <router-link to="mine">
       <span class="returnTomine">
-        < 返回
+        <i class="el-icon-caret-left"></i>
       </span>
     </router-link>
 
@@ -29,10 +28,11 @@
   margin: auto;">
         <!--    <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->
         <h1 class="h3 mb-3 font-weight-normal">请登录</h1>
-        <label for="inputEmail" class="sr-only">用户名</label>
-        <input id="inputEmail" class="form-control" placeholder="Username" required autofocus  v-model="username">
+
+        <label for="username" class="sr-only">用户名</label>
+        <input id="username" class="form-control username" placeholder="Username" required autofocus  v-model="username">
         <label for="inputPassword" class="sr-only">密码</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required  v-model="passwd">
+        <input type="password" id="inputPassword" class="form-control passwd" placeholder="Password" required  v-model="passwd">
         <!--        <div class="checkbox mb-3">-->
         <!--          <label>-->
         <!--            <input type="checkbox" value="remember-me" style="font-weight: 400;"> 记住我-->
@@ -49,6 +49,16 @@
         <br/>
         <button class="btn btn-lg btn-primary btn-block" @click="loginTo">登入</button>
 
+      </div>
+
+      <div class="myfooter" >
+        <el-link type="primary" href="https://www.baidu.com">联系我们 </el-link>
+        |
+        <el-link type="primary" href="https://www.baidu.com"> 了解我们</el-link>
+      </div>
+
+      <div class="copyright">
+        Copyright © 2021-2022 21C.com
       </div>
 
     </div>
@@ -71,6 +81,7 @@ export default {
     }
   },
   methods: {
+
     loginTo() {
 
       let _this = this
@@ -103,6 +114,7 @@ export default {
           console.log("登录成功")
           _this.userId = _d.data
           window.sessionStorage.setItem("userId",_this.userId)
+          window.sessionStorage.setItem("username",_this.username)
           this.$message({
             message: '登录成功',
             type: 'success'
@@ -160,8 +172,20 @@ export default {
 
 .returnTomine {
   margin: 1rem 0 0 .5rem;
-  font-size: medium;
+  font-size: large;
   color: #736c6c;
 }
 
+.copyright{
+  font-size: .2rem;
+  color: #736c6c;
+}
+
+.username{
+  height: .8rem ;
+}
+
+.passwd{
+  height: .8rem;
+}
 </style>
