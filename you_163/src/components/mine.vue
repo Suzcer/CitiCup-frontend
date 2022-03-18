@@ -312,7 +312,7 @@ export default {
 }
 
 .editinfo{
-  background: #1a26ae;
+  background: #0078d4;
   border-radius: .2rem;
   text-align: center;
   color: #FFFFFF;

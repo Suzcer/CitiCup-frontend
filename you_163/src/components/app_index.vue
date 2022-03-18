@@ -1,6 +1,7 @@
 <template>
   <div id="app">
 
+    <br/>
 
     <div class="input-group mysearch">
       <!-- 搜索框 -->
@@ -8,35 +9,44 @@
 
         <el-col :span="3">
 
-          <div>
+          <img class="media-object" src="../assets/picture/esglogo.png" alt="...">
 
-            <img class="media-object" src="../assets/picture/logo.png" alt="...">
+        </el-col>
+
+        <el-col :span="16">
+          <div class="grid-content bg-purple">
+            <input type="text" class="form-control screen-input" v-model="screenText" placeholder="全站搜索文章"
+                   @keyup.enter="screen()" style="border-radius: .1rem"/>
 
           </div>
         </el-col>
 
-          <el-col :span="16">
-            <div class="grid-content bg-purple">
-              <input type="text" class="form-control screen-input" v-model="screenText" placeholder="全站搜索文章"
-                     @keyup.enter="screen()" style="border-radius: .1rem"/>
-
+        <el-col :span="3">
+          <div class="grid-content bg-purple-light">
+            <div class="input-group-append">
+              <el-button type="primary" class="searchbtn" icon="el-icon-search" @click="screen()"></el-button>
+              <!--                <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="screen()">搜索</button>-->
             </div>
-          </el-col>
 
-          <el-col :span="3">
-            <div class="grid-content bg-purple-light">
-              <div class="input-group-append">
-                <el-button type="primary" class="searchbtn" icon="el-icon-search" @click="screen()"></el-button>
-<!--                <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="screen()">搜索</button>-->
-              </div>
-
-            </div>
-          </el-col>
+          </div>
+        </el-col>
       </el-row>
     </div>
 
+    <template>
+      <div class="_tab">
+        <el-tabs v-model="activeName" @tab-click="handleClick" class="deleteborder">
+          <el-tab-pane label="" name="1"></el-tab-pane>
+          <el-tab-pane label="" name="2"></el-tab-pane>
+          <el-tab-pane label="" name="3"></el-tab-pane>
+          <el-tab-pane label="最新" name="first"></el-tab-pane>
+          <el-tab-pane label="推荐" name="second"></el-tab-pane>
+          <el-tab-pane label="热门" name="third"></el-tab-pane>
+        </el-tabs>
+      </div>
+    </template>
 
-    <br/>
+
     <br/>
 
 
@@ -71,22 +81,46 @@ export default {
       userId: window.sessionStorage.getItem("userId"),
       screenText: '',
       LookupList: [],
+      activeName: 'second',
     }
   },
   methods: {
     toPassagedetail(articleId) {
-      this.$router.push({
-        name: "passagedetail",
-        params: {
-          articleId: articleId,
-        }
-      })
+
+      let _this=this
+      console.log("topassagedetail")
+      if (_this.userId === null) {
+
+        this.$message({
+          message: '请先登录',
+          type: 'warning'
+        });
+
+        this.$router.push({
+          name: "login",
+          params: {
+          }
+        })
+
+      }else{
+        this.$router.push({
+          name: "passagedetail",
+          params: {
+            articleId: articleId,
+          }
+        })
+      }
+
+
+    },
+    handleClick(tab, event) {
+      console.log(tab, event);
     },
     screen() {
       let _this = this
       // console.log(_this.screenText)
-
       //查找的接口
+
 
       axios.get('http://localhost:8181/article/search?key=' + _this.screenText).then(_d => {
         _this.LookupList = _d.data
@@ -149,18 +183,28 @@ export default {
 
 }
 
-.searchbtn{
+.searchbtn {
   height: .55rem;
   text-align: center;
 }
 
 .mysearch {
-  margin: .4rem .3rem .2rem .3rem;
+  margin: 0 .3rem .2rem .3rem;
   width: 6rem;
   /*border-radius: 1rem;*/
 
 }
 
+._tab {
+  text-align: center;
+
+}
+
+
+/*  TODO 想删掉这条东西但是发现不好删orz   */
+.deleteBorder .el-tabs__nav-wrap.is-top::after {
+  height: 0;
+}
 
 
 </style>

@@ -12,6 +12,7 @@ import $ from 'jquery'
 import 'bootstrap3/dist/css/bootstrap.css'
 import 'bootstrap3/dist/js/bootstrap.js'
 import * as echarts from 'echarts'
+import './assets/iconfont/iconfont.css'
 
 import { Button,Col, Row,Search,Tab,Tabs,Swipe, SwipeItem,Grid, GridItem,Tabbar,
   TabbarItem,Image as VanImage,Divider,Cell, CellGroup} from 'vant';

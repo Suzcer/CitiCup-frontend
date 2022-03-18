@@ -34,14 +34,13 @@
 
         <div>
           <template>
-            <!--   TODO 表格内容太长，导致分行显示           -->
-
 
             <el-table
               :data="ESGrank"
               height="420"
               style="width: 100%" class="mytable"
-              :row-class-name="tableRowClassName"
+              :row-style="tableRowClassName"
+              :header-cell-style="tableHeaderCellStyle"
             >
               <el-table-column prop="factorId" class="firstcol" label="Id"></el-table-column>
               <el-table-column prop="firstClass" class="secondcol" label="类别"></el-table-column>
@@ -79,13 +78,27 @@ import footerbar from './footerbar'
 export default {
   name: 'rank',
   methods: {
+
     tableRowClassName({row, rowIndex}) {
-      if (rowIndex === 1) {
-        return 'warning-row';
-      } else if (rowIndex === 3) {
-        return 'success-row';
+      //拿到每行的数据row
+      console.log(row)
+      if (rowIndex % 2 === 1) {
+        return {//不知道为啥不能通过官网的classname获取
+          background:'#c7e8ff',
+          color: '#057fd7',
+        }
+      } else {
+        return {
+          color: '#057fd7',
+        }
       }
-      return '';
+    },
+
+    tableHeaderCellStyle({row,column,rowIndex, columnIndex}){
+      return{
+        background:'#c7e8ff',
+        color: '#057fd7',
+      }
     },
 
     fetchRank(rankMethod) {
@@ -139,16 +152,9 @@ export default {
 
 <style scoped>
 
-.el-table .warning-row {
-  background: oldlace;
-}
-
-.el-table .success-row {
-  background: #f0f9eb;
-}
 
 .btn:focus {
-  color: #f26b6b;
+  color: #057fd7;
 }
 
 .Bigtitle {
@@ -204,7 +210,8 @@ export default {
 }
 
 
-.subtitle{
+.subtitle {
   font-size: large;
 }
+
 </style>

@@ -21,24 +21,25 @@
 
         <template>
           <el-collapse v-model="activateName"  v-loading="loading">
-            <el-collapse-item v-for="(value,key) in EorSorGList" :key="key" v-bind:name="key" v-bind:title='key'>
+            <el-collapse-item v-for="(value,key) in EorSorGList" :key="key" v-bind:name="key" v-bind:title='key' class="Bigitem" >
 
               <div v-for="item in value" class="eachitem">
 
                 <br/>
                 <el-row>
-                  <el-col :span="20">
+                  <el-col :span="22">
                     {{ item.name }}
                   </el-col>
-                  <el-col :span="4">
+                  <el-col :span="2">
                     <span @click="toFactorDetail(item.id)">
-                      >详情
+                      <i class="el-icon-caret-right"></i>
                     </span>
                   </el-col>
 
                 </el-row>
 
               </div>
+
             </el-collapse-item>
           </el-collapse>
 
@@ -129,17 +130,12 @@ export default {
 
 }
 
-.myfont {
-  color: black;
-  font-size: x-large;
-}
 
 
 .eachitem:hover {
   color: #bb6565;
   background: #f3f3f3;
 }
-
 
 </style>
 

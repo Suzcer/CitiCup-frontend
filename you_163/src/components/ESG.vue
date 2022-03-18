@@ -2,28 +2,30 @@
   <div id="app">
 
 
+    <br/>
     <div class="Bigtitle">
       智选因子
     </div>
 
-    <div v-for="EorSorG in ESG">
-      <el-button class="BigLayout" @click="toEorSorG(EorSorG)">
+    <div v-for="item in ESG">
+      <el-button class="BigLayout" @click="toEorSorG(item)">
 
         <el-row>
           <el-col :span="8">
             <div class="bigESG">
 <!--              <img src="src/assets/E.png">-->
-              {{EorSorG.id}}
+              <img :src="item.pic">
+<!--              {{EorSorG.id}}-->
             </div>
           </el-col>
 
           <el-col :span="16">
             <h5 class="myfont">
-              {{ EorSorG.name }}
+              {{ item.name }}
             </h5>
             <el-divider></el-divider>
             <h5 class="myfont">
-              {{EorSorG.description}}
+              {{item.description}}
             </h5>
           </el-col>
         </el-row>
@@ -64,17 +66,21 @@ export default {
         {
           name:'环境',
           description: 'Environment',
-          id: 'E'
+          id: 'E',
+          pic:require("../assets/picture/Efont.png")
         },
         {
           name: '社会',
           description: 'Society',
-          id: 'S'
+          id: 'S',
+          pic:require("../assets/picture/Sfont.png")
+
         },
         {
           name: '治理',
           description: 'Governance',
-          id: 'G'
+          id: 'G',
+          pic:require("../assets/picture/Gfont.png")
         },
       ],
     }
@@ -86,7 +92,7 @@ export default {
 <style scoped>
 
 .Bigtitle {
-  margin: .5rem 0 0 0;
+  margin: 0 0 0 0;
   font-size: x-large;
   text-align: center;
   font-weight: bold;
@@ -102,12 +108,12 @@ export default {
   width: 5.5rem;
   margin: .2rem .3rem .2rem .4rem;
   color: #f7f7f7;
-  box-shadow: .1rem .1rem .1rem #cfcfcf;
+  box-shadow: .1rem .1rem .05rem rgba(222, 222, 222, 0.99);
   background: #f7f7f7;
 }
 
 .bigESG{
   font-size: 2rem;
-  color: #00a98f;
+  color: #057fd7;
 }
 </style>

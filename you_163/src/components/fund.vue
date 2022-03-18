@@ -11,15 +11,28 @@
 <!--        <router-link to="factordetail" class="myreturn">-->
 <!--          < 返回-->
 <!--        </router-link>-->
-        <div class="myreturn">
+        <el-row>
+          <el-col :span="21">
+            <div class="myreturn">
           <span  onclick="window.history.go(-1)">
             <i class="el-icon-caret-left"></i>
           </span>
-        </div>
+            </div>
+          </el-col>
+          <el-col :span="3">
+            <div class="myicon" @click="already">
+              <i class="el-icon-s-opportunity"></i>
+            </div>
+          </el-col>
+        </el-row>
+
 
         <div>
           <div class="Bigtitle">{{fundDetail.name}}</div>
         </div>
+
+
+
         <div class="fundId">
           基金序号：{{fundDetail.fundId}}
         </div>
@@ -164,7 +177,13 @@ export default {
           console.log("查询失败")
         }
       )
-    }
+    },
+    already(){
+      this.$message({
+        message: '已收藏，请前往个人中心查看',
+        type: 'success'
+      });
+    },
   },
 
   components: {footerbar}
@@ -205,6 +224,10 @@ export default {
 .myfooter{
   margin: 1.4rem 0 0 0;
   text-align: center;
+}
+
+.myicon{
+  font-size: .6rem;
 }
 
 </style>
