@@ -52,15 +52,14 @@
 
     <el-button class="BigLayout" v-for="article in articles" @click="toPassagedetail(article.articleId)">
 
-      <div class="myfont">
-        <span class="controller">
-          标题：{{article.title}}
-        </span>
+      <div class="myfont mytitle">
+        {{article.title}}
       </div>
 
-      <div class="myfont">
-        简介：{{ article.briefInformation }}
+      <div class="myfont myinfo">
+        {{ article.briefInformation }}
       </div>
+
     </el-button>
 
 
@@ -181,6 +180,9 @@ export default {
 .myfont {
   font-size: large;
   color: black;
+  width: 4.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .BigLayout {
@@ -214,6 +216,17 @@ export default {
 /*  TODO 想删掉这条东西但是发现不好删orz   */
 .deleteBorder .el-tabs__nav-wrap.is-top::after {
   height: 0;
+}
+
+.mytitle{
+
+}
+
+
+.myinfo{
+  font-size: medium;
+  margin: .5rem 0 0 0;
+  color: #736c6c;
 }
 
 

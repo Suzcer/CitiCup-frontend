@@ -79,8 +79,9 @@ export default {
 
       let _this=this
       console.log("toEorSorG")
-      if (_this.userId === undefined) {
+      if (_this.userId === null) {
 
+        console.log("准备要登录")
         this.$message({
           message: '请先登录',
           type: 'warning',
