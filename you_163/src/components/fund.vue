@@ -70,6 +70,7 @@
             </el-col>
           </el-row>
 
+
           <el-row>
             <el-col :span="8">
               基金类型:
@@ -80,6 +81,7 @@
               </div>
             </el-col>
           </el-row>
+
 
           <el-row>
             <el-col :span="8">
@@ -103,6 +105,7 @@
             </el-col>
           </el-row>
 
+
           <el-row>
             <el-col :span="8">
               近6月:
@@ -125,6 +128,11 @@
             </el-col>
           </el-row>
 
+          <div class="myfooter" >
+            具体信息详见
+            <el-link type="primary" :href="fundDetail.href">基金网站</el-link>
+          </div>
+
         </el-card>
       </div>
 
@@ -133,10 +141,7 @@
     <el-footer>
 
 
-      <div class="myfooter" >
-        具体信息详见
-        <el-link type="primary" href="https://www.baidu.com">基金网站</el-link>
-      </div>
+
 
       <footerbar>
       </footerbar>

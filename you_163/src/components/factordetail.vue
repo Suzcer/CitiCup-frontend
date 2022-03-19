@@ -44,7 +44,7 @@
         <el-row>
           <el-col :span="12">
             <h4 class="littleTitle">
-              关注基金
+              相关基金
             </h4>
           </el-col>
           <el-col :span="12">
@@ -52,7 +52,7 @@
           </el-col>
         </el-row>
 
-        <div v-for="item in aaa" class="fundItem">
+        <div v-for="item in factordetail.relevantFund" class="fundItem" @click="toFundDetail(item.fundId)">
           <el-row>
 
             <el-col :span="20">
@@ -61,9 +61,7 @@
             </el-col>
 
             <el-col :span="4">
-            <span @click="toFundDetail(item.fundId)">
-              >详情
-            </span>
+
             </el-col>
 
           </el-row>
@@ -156,6 +154,7 @@ export default {
 
     axios.get('http://localhost:8181/user/getFactorDetails?factorId=' + _this.factorId).then(_d => {
       _this.factordetail = _d.data
+      console.log(_this.factordetail)
       console.log("获取factorId成功")
       // {"name":"碳足迹","details":null,"secondClass":"绿色经营","relevantFund":[]}
 

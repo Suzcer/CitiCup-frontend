@@ -100,16 +100,18 @@ export default {
       axios.get(articleurl).then(_d => {
         _this.article = _d.data;
         _this.loading=false
+        console.log(_this.article)
+
       }).catch(err=>{
         console.log()
       })
     },
-    editcomment(){
-      this.$message({
-        message: '评论成功',
-        type: 'success'
-      });
-    },
+    // editcomment(){
+    //   this.$message({
+    //     message: '评论成功',
+    //     type: 'success'
+    //   });
+    // },
   },
   created() {
     this.getData()
