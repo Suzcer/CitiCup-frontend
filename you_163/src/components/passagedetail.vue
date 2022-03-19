@@ -167,6 +167,7 @@ export default {
 }
 
 .content{
+
   margin: 0 .4rem 0 0;
 }
 
