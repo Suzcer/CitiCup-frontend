@@ -5,14 +5,14 @@
 
 
     <!--    <div :style="conTop"> </div>-->
-    <div :style="{backgroundImage: 'url(' + img + ')'}" class="bgimg">
+    <div :style="{backgroundImage: 'url(' + img + ')'}" class="bgimg" >
 
       <!--    <img src="../assets/passagebg.png" alt="" class="headimg"/>-->
 
 
       <br/>
       <router-link to="/" class="myreturn">
-        <i class="el-icon-caret-left"></i>
+        <svg t="1647703971703" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2028" width="16" height="16"><path d="M939.880137 487.72513l-782.215258 0 358.804922-318.92975c12.389168-11.011798 13.505595-29.980825 2.492774-42.369993-11.011798-12.386098-29.977755-13.505595-42.367947-2.492774L64.602344 490.13911c-6.407943 5.693676-10.073426 13.858636-10.073426 22.430872s3.665483 16.737196 10.073426 22.430872l411.993309 366.204449c5.717212 5.083785 12.83533 7.580652 19.925818 7.580652 8.274454 0 16.514115-3.403516 22.442128-10.07445 11.011798-12.387122 9.896394-31.357172-2.492774-42.367947L169.687704 548.100196 939.880137 548.100196c16.57449 0 30.011524-13.613042 30.011524-30.187533S956.454628 487.72513 939.880137 487.72513z" p-id="2029" fill="#707070"></path></svg>
       </router-link>
       <h1 class="hugetitle">{{ article.title }}</h1>
 
@@ -80,7 +80,7 @@ export default {
       article: [],
       articleId: this.$route.params.articleId,
       userId: window.sessionStorage.getItem("userId"),
-      img: require('../assets/passagebg.png'),
+      img: require('../assets/images.jpeg'),
       loading: true,
       comments:'',
 
