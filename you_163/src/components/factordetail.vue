@@ -12,7 +12,7 @@
       </el-col>
       <el-col :span="4">
         <div class="myicon" @click="already">
-          <i class="el-icon-s-opportunity"></i>
+          <i class="el-icon-plus"></i>
         </div>
       </el-col>
     </el-row>
@@ -140,7 +140,6 @@ export default {
         this.$message({
           type: 'info',
           message: '取消输入'
-
         });
       });
 

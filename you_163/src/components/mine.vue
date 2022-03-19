@@ -15,17 +15,17 @@
             />
           </van-col>
 
-          <van-col span="4">
+          <van-col span="13">
             <div class="username">
               {{ username }}
             </div>
           </van-col>
 
-          <van-col span="9">
-            <div class="editinfo" @click="editinfo">
-              编辑资料
-            </div>
-          </van-col>
+<!--          <van-col span="9">-->
+<!--            <div class="editinfo" @click="editinfo">-->
+<!--              编辑资料-->
+<!--            </div>-->
+<!--          </van-col>-->
 
           <van-col span="2">
             <div class="setting" @click="toSetting()">
@@ -40,7 +40,6 @@
           <van-row class="certainiofo">
             <van-col span="8">
               <i class="icon iconfont icon_1"></i>
-              <span></span>
               浏览记录
             </van-col>
 
@@ -207,9 +206,9 @@ export default {
       })
     },
     toerror() {
-      this.$router.push({
-        name: "error",
-      })
+      // this.$router.push({
+      //   name: "error",
+      // })
     },
     toSetting() {
       this.$router.push({
