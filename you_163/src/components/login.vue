@@ -47,7 +47,7 @@
           </router-link>
         </div>
         <br/>
-        <button class="btn btn-lg btn-primary btn-block" @click="loginTo">登入</button>
+        <button class="btn btn-lg btn-primary btn-block" @click="loginTo">登录</button>
 
       </div>
 

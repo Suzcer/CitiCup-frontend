@@ -51,6 +51,13 @@
 
 
     <el-button class="BigLayout" v-for="article in articles" @click="toPassagedetail(article.articleId)">
+
+      <div class="myfont">
+        <span class="controller">
+          标题：{{article.title}}
+        </span>
+      </div>
+
       <div class="myfont">
         简介：{{ article.briefInformation }}
       </div>
@@ -93,7 +100,8 @@ export default {
 
         this.$message({
           message: '请先登录',
-          type: 'warning'
+          type: 'warning',
+          duration: 1500,
         });
 
         this.$router.push({
@@ -138,8 +146,10 @@ export default {
 
   components: {footerbar},
   created() {
+    let _this=this
     axios.get('http://localhost:8181/article/all').then(_d => {
-      this.articles = _d.data;
+      _this.articles = _d.data;
+      console.log(_this.articles)
     })
   }
 }

@@ -26,7 +26,7 @@
 
           <el-table
             :data="Edetail"
-            height="150"
+            height="2.3rem"
             style="width: 100%">
             <el-table-column
               prop="factorName"
@@ -50,7 +50,7 @@
 
           <el-table
             :data="Sdetail"
-            height="150"
+            height="2.3rem"
             style="width: 100%">
             <el-table-column
               prop="factorName"
@@ -73,7 +73,7 @@
 
           <el-table
             :data="Gdetail"
-            height="150"
+            height="2.3rem"
             style="width: 100%">
             <el-table-column
               prop="factorName"
@@ -113,7 +113,7 @@ export default {
       ESGdetail: [],
       Edetail: [],
       Sdetail: [],
-      Gdetail: [],     //实在是不想再加一层遍历了
+      Gdetail: [],     //实在是不想再加一层循环遍历
 
     }
   },
@@ -196,10 +196,10 @@ export default {
 
 .BigLayout {
   height: 3rem;
-  width: 5.5rem;
-  margin: .2rem .2rem .2rem .2rem;
+  width: 5.7rem;
+  margin: .2rem .2rem .2rem .1rem;
   color: #f7f7f7;
-  box-shadow: .1rem .1rem .3rem #888888;
+  box-shadow: .1rem .1rem .2rem #888888;
   background: #f7f7f7;
 }
 

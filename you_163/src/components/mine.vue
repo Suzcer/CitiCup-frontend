@@ -71,11 +71,9 @@
             </div>
           </van-col>
           <van-col span="4">
-            <router-link to="minedetail">
-              <span class="mydetail">
-              详情>
-              </span>
-            </router-link>
+            <span class="mydetail" @click="tominedetail()">
+            详情>
+            </span>
           </van-col>
         </van-row>
 
@@ -156,6 +154,31 @@ export default {
     }
   },
   methods: {
+    tominedetail(){
+      let _this=this
+      console.log("tominedetail")
+      if (_this.userId === null) {
+
+        this.$message({
+          message: '请先登录',
+          type: 'warning',
+          duration: 1500,
+        });
+
+        this.$router.push({
+          name: "login",
+          params: {
+          }
+        })
+
+      }else{
+        this.$router.push({
+          name: "minedetail",
+          params: {
+          }
+        })
+      }
+    },
     drawLine() {
       let myChart = this.$echarts.init(document.getElementById('myChart'))
       let _this = this

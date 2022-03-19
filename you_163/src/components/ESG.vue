@@ -48,17 +48,6 @@ import Vue from "vue";
 
 export default {
   name: 'ESG',
-  methods: {
-    toEorSorG(EorSorG) {
-      this.$router.push({
-        name: "EorSorG",
-        params: {
-          EorSorG: EorSorG,
-        }
-      })
-    },
-  },
-
   data() {
     return {
       search_v: '',
@@ -85,6 +74,39 @@ export default {
       ],
     }
   },
+  methods: {
+    toEorSorG(EorSorG) {
+
+      let _this=this
+      console.log("toEorSorG")
+      if (_this.userId === undefined) {
+
+        this.$message({
+          message: '请先登录',
+          type: 'warning',
+          duration: 1500,
+        });
+
+        this.$router.push({
+          name: "login",
+          params: {
+          }
+        })
+
+      }else{
+        console.log(_this.userId)
+
+        this.$router.push({
+          name: "EorSorG",
+          params: {
+            EorSorG: EorSorG
+          }
+        })
+      }
+    },
+  },
+
+
   components: {footerbar}
 }
 </script>

@@ -132,6 +132,8 @@ export default {
 .hugetitle {
   text-align: center;
   color: #ffffff;
+  font-size: medium;
+  margin: 0 1rem 0 1rem;
 }
 
 .author {
