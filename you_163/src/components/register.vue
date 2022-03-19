@@ -94,7 +94,7 @@ export default {
       if(test===false){
         this.$notify.error({
           title: '错误',
-          message: '密码格式有误'
+          message: '密码格式有误，密码需要出现大写字母、小写字母、数字、特殊字符，且长度为4-16位'
         });
         _this.passwd=""
       }else{

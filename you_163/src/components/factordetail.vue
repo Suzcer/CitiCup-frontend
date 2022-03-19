@@ -17,11 +17,11 @@
       </el-col>
     </el-row>
 
-<!--    <div>-->
-<!--      <span onclick="window.history.go(-1)" class="myreturn">-->
-<!--        < 返回-->
-<!--      </span>-->
-<!--    </div>-->
+    <!--    <div>-->
+    <!--      <span onclick="window.history.go(-1)" class="myreturn">-->
+    <!--        < 返回-->
+    <!--      </span>-->
+    <!--    </div>-->
 
     <div>
       <div class="Bigtitle">{{ factordetail.name }}</div>
@@ -85,15 +85,16 @@ export default {
     return {
       factorId: this.$route.params.factorId,
       factordetail: {},
+      userId: window.sessionStorage.getItem("userId"),
       aaa: [
         {
           name: "方正富邦ESG主题投",
           profit_year: -7.0E-4,
-          profit_6month:0.0881,
-          profit_3month:-0.0167,
-          profit_1month:-0.0707,
+          profit_6month: 0.0881,
+          profit_3month: -0.0167,
+          profit_1month: -0.0707,
           code: "010071",
-          type:"混合型",
+          type: "混合型",
           fundId: 9
         }
       ]
@@ -109,11 +110,40 @@ export default {
         }
       })
     },
-    already(){
-      this.$message({
-        message: '已收藏，请前往个人中心查看',
-        type: 'success'
+    already() {
+
+
+      let _this = this
+
+      _this.$prompt('请为此因子添加偏好,范围为0-10', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        inputPattern: /^[1-9]\d*$/,
+        inputErrorMessage: '数字格式不正确'
+      }).then(({value}) => {
+
+        axios.get('http://localhost:8181/user/addPrefer?userId='+
+          _this.userId+"&factorId="+_this.factorId+"&preference="+value).then(_d => {
+
+          console.log("添加偏好成功")
+
+        }).catch(err => {
+            console.log("添加失败")
+          }
+        )
+
+        this.$message({
+          type: 'success',
+          message: '添加成功,偏好是:' + value
+        });
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '取消输入'
+        });
       });
+
+
     }
   },
   created() {
@@ -195,7 +225,7 @@ export default {
   background: #f3f3f3;
 }
 
-.myicon{
+.myicon {
   font-size: .6rem;
 }
 

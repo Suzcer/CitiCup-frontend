@@ -36,6 +36,7 @@
             <el-button type="primary" round @click="postChange()">保存</el-button>
           </template>
 
+
           <!--  TODO   表格中进行基金的修改    -->
           <template slot-scope="scope">
             <el-input placeholder="您认为的偏好程度"></el-input>
@@ -72,6 +73,7 @@ export default {
   //TODO 进行 preference 的修改
   methods:{
     saveChange(factorId,edititem){
+
 
     },
     postChange(){

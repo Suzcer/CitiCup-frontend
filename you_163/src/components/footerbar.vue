@@ -9,9 +9,9 @@
 <!--      <van-tabbar-item to="/mine" icon="setting-o" badge="3"></van-tabbar-item>-->
 
 
-      <van-tabbar-item to="/ESG"  >
+      <van-tabbar-item to="/ESG" icon="home-o" >
 <!--        <img src="src/assets/picture/user.png">-->
-        <i class="icon iconfont icon- myicon"></i>
+        <i class="icon iconfont myicon" ></i>
       </van-tabbar-item>
       <van-tabbar-item to="/" icon="search">
 
