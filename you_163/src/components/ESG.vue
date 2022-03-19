@@ -19,7 +19,7 @@
             </div>
           </el-col>
 
-          <el-col :span="16">
+          <el-col :span="16" class="ESGESG">
             <h5 class="myfont">
               {{ item.name }}
             </h5>
@@ -115,5 +115,11 @@ export default {
 .bigESG{
   font-size: 2rem;
   color: #057fd7;
+}
+
+.ESGESG{
+  /*text-align: center;*/
+  /*vertical-align: center;*/
+  margin: .2rem 0 0 0;
 }
 </style>

@@ -56,7 +56,7 @@
       </div>
 
       <div class="copyright">
-        Copyright © 2021-2022 21C.com
+        Copyright © 2021-2022 23C.com
       </div>
 
     </div>
