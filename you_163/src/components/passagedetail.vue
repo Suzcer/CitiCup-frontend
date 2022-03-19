@@ -41,27 +41,27 @@
     </div>
 
     <!-- footer  -->
-    <div class="articlefooter">
-      <el-row :gutter="27">
-        <el-col :span="20">
-          <el-input v-model="comments" placeholder="写下评论...">
+<!--    <div class="articlefooter">-->
+<!--      <el-row :gutter="27">-->
+<!--        <el-col :span="20">-->
+<!--          <el-input v-model="comments" placeholder="写下评论...">-->
 
-          </el-input>
-        </el-col>
-        <el-col :span="2">
-          <div class="commenticon" @click="editcomment">
-            <i class="el-icon-edit"></i>
-          </div>
+<!--          </el-input>-->
+<!--        </el-col>-->
+<!--        <el-col :span="2">-->
+<!--          <div class="commenticon" @click="editcomment">-->
+<!--            <i class="el-icon-edit"></i>-->
+<!--          </div>-->
 
-        </el-col>
-        <el-col :span="2">
-          <div class="commenticon">
-            <i class="el-icon-share"></i>
-          </div>
-        </el-col>
-      </el-row>
+<!--        </el-col>-->
+<!--        <el-col :span="2">-->
+<!--          <div class="commenticon">-->
+<!--            <i class="el-icon-share"></i>-->
+<!--          </div>-->
+<!--        </el-col>-->
+<!--      </el-row>-->
 
-    </div>
+<!--    </div>-->
 
 
   </div>
