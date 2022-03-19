@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="be940f2d-f613-43d4-8104-2ff2b33a9fc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/you_163/src/components/governance.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/you_163/src/components/passagedetail.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/you_163/src/components/rankdetail.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/you_163/src/components/society.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/you_163/src/components/ESG.vue" beforeDir="false" afterPath="$PROJECT_DIR$/you_163/src/components/ESG.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/you_163/src/components/environment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/you_163/src/components/environment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/you_163/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/you_163/config/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/you_163/src/components/mine.vue" beforeDir="false" afterPath="$PROJECT_DIR$/you_163/src/components/mine.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/you_163/src/components/minedetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/you_163/src/components/minedetail.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/you_163/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/you_163/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +16,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2693LaW8ZkMgaYvBsrYIXeX31BN" />
   <component name="ProjectViewState">
@@ -29,7 +29,30 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CitiCup-backend" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/you_163/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -40,7 +63,13 @@
       <option name="presentableId" value="Default" />
       <updated>1646821924216</updated>
       <workItem from="1646821926432" duration="3000" />
+      <workItem from="1647072525074" duration="782000" />
+      <workItem from="1647244630008" duration="10000" />
+      <workItem from="1647708796964" duration="2887000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

@@ -107,15 +107,17 @@
 
         <el-table
           :data="Recommend"
-          height="150"
-          style="width: 100%">
+          height="500"
+          style="width: 100%"
+          @click="tofund()"
+        >
           <el-table-column
-            prop="recommendName"
+            prop="fundName"
             label="系统推荐基金"
-            width="180">
+            width="280">
           </el-table-column>
           <el-table-column
-            prop="gainRate"
+            prop="profit"
             label="收益率"
             width="100">
           </el-table-column>
@@ -144,11 +146,7 @@ export default {
       ESGvalue: [],
       userId: window.sessionStorage.getItem("userId"),
       Recommend: [
-        {
-          recommendName: 12,
-          gainRate: 12
 
-        }
       ],
       username: window.sessionStorage.getItem("username"),
     }
@@ -234,11 +232,38 @@ export default {
       //   name: "error",
       // })
     },
+    fetchfund(){
+      let _this = this
+      // console.log(_this.screenText)
+      //查找的接口
+
+
+      axios.get('http://localhost:8181/user/getFund?userId=' + _this.userId).then(_d => {
+
+        console.log(_d.data.recommendFund)
+
+        _this.Recommend=_d.data.recommendFund
+
+      }).catch(err => {
+          console.log("查询失败")
+        }
+      )
+    },
     toSetting() {
       this.$router.push({
         name: "login",
         params: {}
       })
+    },
+    tofund(){
+      this.$router.push({
+        name: "fund",
+        params: {
+          fundId: fundId,
+        }
+      })
+
+
     },
     editinfo(){
 
@@ -247,6 +272,7 @@ export default {
   mounted() {
 
     this.drawLine();
+    this.fetchfund();
 
     //监听刷新，否则可能丢失数据
     window.addEventListener("load", () => {
