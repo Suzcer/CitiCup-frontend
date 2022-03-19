@@ -31,11 +31,11 @@
     <div>
 
         <div class="myfont"
-             style="box-shadow: 0 2px 18px 0 rgba(0, 0, 0, 0.1);
-             position:relative;left:30px;right: 50px"
+
               >
-          简介:
-          {{ factordetail.details }}
+          <span class="details">
+          简介: {{ factordetail.details }}
+          </span>
         </div>
 
 
@@ -88,18 +88,18 @@ export default {
       factorId: this.$route.params.factorId,
       factordetail: {},
       userId: window.sessionStorage.getItem("userId"),
-      aaa: [
-        {
-          name: "方正富邦ESG主题投",
-          profit_year: -7.0E-4,
-          profit_6month: 0.0881,
-          profit_3month: -0.0167,
-          profit_1month: -0.0707,
-          code: "010071",
-          type: "混合型",
-          fundId: 60
-        }
-      ]
+      // aaa: [
+      //   {
+      //     name: "方正富邦ESG主题投",
+      //     profit_year: -7.0E-4,
+      //     profit_6month: 0.0881,
+      //     profit_3month: -0.0167,
+      //     profit_1month: -0.0707,
+      //     code: "010071",
+      //     type: "混合型",
+      //     fundId: 60
+      //   }
+      // ]
     }
   },
   methods: {
@@ -186,6 +186,8 @@ export default {
 .myfont {
   font-size: large;
   color: #858585;
+  width: 5.5rem;
+  margin: 0 0 0 .5rem;
 }
 
 .BigLayout {
@@ -230,6 +232,10 @@ export default {
 
 .myicon {
   font-size: .6rem;
+}
+
+.details{
+  margin: .2rem .2rem .2rem .2rem;
 }
 
 </style>
