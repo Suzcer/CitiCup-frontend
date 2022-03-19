@@ -28,12 +28,15 @@
     </div>
 
     <div>
-      <el-button class="BigLayout">
-        <div class="myfont">
+
+        <div class="myfont"
+             style="box-shadow: 0 2px 18px 0 rgba(0, 0, 0, 0.1);
+             position:relative;left:30px;right: 50px"
+              >
           简介:
           {{ factordetail.details }}
         </div>
-      </el-button>
+
 
       <div class="FundLayout">
 
@@ -95,7 +98,7 @@ export default {
           profit_1month: -0.0707,
           code: "010071",
           type: "混合型",
-          fundId: 9
+          fundId: 60
         }
       ]
     }
@@ -209,7 +212,7 @@ export default {
 }
 
 
-.FundLayout {
+  .FundLayout {
 
   height: 5rem;
   width: 5.5rem;
