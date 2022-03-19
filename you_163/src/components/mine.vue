@@ -199,14 +199,16 @@ export default {
       myChart.setOption({
         title: {},
         legend: {
+          orient: 'vertical',
+          left: 10,
           data: ['ESG因素比重']
         },
         radar: {
           // shape: 'circle',
           indicator: [
-            {name: 'E', max: 100},
-            {name: 'S', max: 100},
-            {name: 'G', max: 100}
+            {name: 'E', max: 10},
+            {name: 'S', max: 10},
+            {name: 'G', max: 10}
           ]
         },
         series: [
