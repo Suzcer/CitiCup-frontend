@@ -37,7 +37,7 @@
 
             <el-table
               :data="ESGrank"
-              height="420"
+              height="430"
               style="width: 100%" class="mytable"
               :row-style="tableRowClassName"
               :header-cell-style="tableHeaderCellStyle"

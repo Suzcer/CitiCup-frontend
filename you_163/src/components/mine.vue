@@ -31,6 +31,7 @@
             <div class="setting" @click="toSetting()">
               <i class="el-icon-setting"></i>
             </div>
+
           </van-col>
 
 
