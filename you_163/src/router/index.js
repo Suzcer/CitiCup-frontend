@@ -44,7 +44,7 @@ export default new Router({
       name: 'EorSorG',
       component: EorSorG
     }, {
-      path: '/factordetail',
+      path: '/factordetail/:factorId',
       name: 'factordetail',
       component: factordetail
     },{
@@ -68,9 +68,9 @@ export default new Router({
       name: 'error',
       component: error
     },{
-      path: '/fund',
+      path: '/fund/:fundId',
       name: 'fund',
-      component: fund
+      component: fund,
     },
   ]
 })

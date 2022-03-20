@@ -111,10 +111,11 @@
           style="width: 100%"
           @click="tofund()"
         >
-          <el-table-column
-            prop="fundName"
-            label="系统推荐基金"
-            width="280">
+          <el-table-column label="系统推荐基金" width="280" >
+            <template #default = 'scope'>
+              <router-link :to="'/fund/'+scope.row.fundId">{{scope.row.fundName}}</router-link>
+            </template>
+
           </el-table-column>
           <el-table-column
             prop="profit"
@@ -141,6 +142,7 @@ import footerbar from './footerbar'
 
 export default {
   name: 'mine',
+
   data() {
     return {
       ESGvalue: [],
@@ -180,19 +182,9 @@ export default {
     drawLine() {
       let myChart = this.$echarts.init(document.getElementById('myChart'))
       let _this = this
-
+      console.log(_this.ESGvalue)
 
       //获取后端三个数据
-      axios.get('http://localhost:8181/user/getPreferFactorNum' + "?userId=" + this.userId).then(_d => {
-        _this.ESGvalue = [_d.data["eprefer"], _d.data["sprefer"], _d.data["gprefer"]];
-        console.log("三个数据获取成功")
-        console.log(_this.ESGvalue)
-
-      }).catch(err => {
-        console.log(err)
-        console.log("三个数据获取失败")
-      })
-
 
       myChart.setOption({
         title: {},
@@ -272,7 +264,16 @@ export default {
     }
   },
   mounted() {
+    let _this = this
+    axios.get('http://localhost:8181/user/getPreferFactorNum' + "?userId=" + this.userId).then(_d => {
+      _this.ESGvalue.push(_d.data["enum"], _d.data["snum"], _d.data["gnum"]);
 
+
+    }).catch(err => {
+      console.log(err)
+      console.log("三个数据获取失败")
+    })
+    console.log(_this.ESGvalue)
     this.drawLine();
     this.fetchfund();
 
