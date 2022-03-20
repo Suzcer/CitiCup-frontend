@@ -93,7 +93,6 @@ export default {
 
         for(let i=0;i<_this.editdetail.length;i++){
           axios.get('http://localhost:8181/user/addPrefer?userId=' + _this.userId+"&factorId="+_this.editdetail[i].factorId+"&preference="+_this.editdetail[i].preference).then(_d => {
-
             console.log("更新偏好成功")
 
           }).catch(err => {
