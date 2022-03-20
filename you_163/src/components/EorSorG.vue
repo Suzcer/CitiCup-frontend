@@ -89,7 +89,7 @@ export default {
       _this.loading=true
 
       console.log(_this.EorSorG)
-      axios.get('http://localhost:8181/factor/getFactorList?firstClass=' + _this.EorSorG.id).then(_d => {
+      axios.get('http://47.96.124.191:8181/factor/getFactorList?firstClass=' + _this.EorSorG.id).then(_d => {
         _this.EorSorGList = _d.data;
         console.log(_d.data)
         _this.loading=false

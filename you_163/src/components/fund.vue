@@ -174,7 +174,7 @@ export default {
 
     initData(){
       let _this=this  //其实对于普通方法，不用这样也行
-      axios.get('http://localhost:8181/fund/getDetail?fundId=' + _this.fundId).then(_d => {
+      axios.get('http://47.96.124.191:8181/fund/getDetail?fundId=' + _this.fundId).then(_d => {
         _this.fundDetail = _d.data
         console.log("查询成功")
         console.log(_this.fundDetail)

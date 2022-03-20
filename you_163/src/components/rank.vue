@@ -16,7 +16,7 @@
         <div>
 
           <div class="btn-group mybtngroup" role="group">
-            <button type="button" class="btn btn-default mybtn" @click="fetchRank(1)">
+            <button type="button" class="btn btn-default mybtn" @click="fetchRank(2)">
               <div class="subtitle">
                 <el-row>
                   <el-col :span="8">
@@ -77,7 +77,6 @@
               <el-table-column prop="name" class="thirdcol" label="因素" width="200"></el-table-column>
 
               <el-table-column
-                fixed="right"
                 label="操作"
                 width="45">
                 <template slot-scope="scope">
@@ -134,7 +133,7 @@ export default {
     fetchRank(rankMethod) {
 
       let _this = this
-      axios.get('http://localhost:8181/factor/rank' + rankMethod).then(_d => {
+      axios.get('http://47.96.124.191:8181/factor/rank' + rankMethod).then(_d => {
 
         _this.ESGrank = _d.data
 
@@ -169,7 +168,7 @@ export default {
   },
   created() {
     let _this = this
-    axios.get('http://localhost:8181/factor/rank1').then(_d => {
+    axios.get('http://47.96.124.191:8181/factor/rank1').then(_d => {
       _this.ESGrank = _d.data;
       console.log("初始化成功")
     }).catch(err => {

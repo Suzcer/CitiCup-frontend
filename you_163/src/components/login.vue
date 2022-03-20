@@ -58,9 +58,9 @@
       </h5>
 
       <div class="myfooter" >
-        <el-link type="primary" href="https://www.baidu.com">联系我们 </el-link>
+        <el-link type="primary" href="https://site-7302119-6772-3694.mystrikingly.com">联系我们 </el-link>
         |
-        <el-link type="primary" href="https://www.baidu.com"> 了解我们</el-link>
+        <el-link type="primary" href="https://site-7302119-6772-3694.mystrikingly.com"> 了解我们</el-link>
       </div>
 
       <div class="copyright">
@@ -99,7 +99,7 @@ export default {
       // axios.defaults.headers.post['Content-Type'] = 'application/json; charset=UTF-8';
 
 
-      axios.post('http://localhost:8181/user/login',
+      axios.post('http://47.96.124.191:8181/user/login',
         {"name": _this.username, "password": _this.passwd}
       ).then(_d => {
 

@@ -104,7 +104,7 @@ export default {
         _this.passwd=""
       }else{
 
-        axios.post('http://localhost:8181/user/register',
+        axios.post('http://47.96.124.191:8181/user/register',
           {"name": _this.username, "password": _this.passwd}
         ).then(_d => {
           console.log("注册成功")

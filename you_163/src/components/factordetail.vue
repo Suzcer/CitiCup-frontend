@@ -124,7 +124,7 @@ export default {
         inputErrorMessage: '数字格式不正确'
       }).then(({value}) => {
 
-        axios.get('http://localhost:8181/user/addPrefer?userId='+
+        axios.get('http://47.96.124.191:8181/user/addPrefer?userId='+
           _this.userId+"&factorId="+_this.factorId+"&preference="+value).then(_d => {
 
           console.log("添加偏好成功")
@@ -152,7 +152,7 @@ export default {
     //其实created函数都应该调用别的函数，而不是这样直接写在里面
     let _this = this
 
-    axios.get('http://localhost:8181/user/getFactorDetails?factorId=' + _this.factorId).then(_d => {
+    axios.get('http://47.96.124.191:8181/user/getFactorDetails?factorId=' + _this.factorId).then(_d => {
       _this.factordetail = _d.data
       console.log(_this.factordetail)
       console.log("获取factorId成功")

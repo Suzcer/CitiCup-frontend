@@ -92,7 +92,7 @@ export default {
       }).then(() => {
 
         for(let i=0;i<_this.editdetail.length;i++){
-          axios.get('http://localhost:8181/user/addPrefer?userId=' + _this.userId+"&factorId="+_this.editdetail[i].factorId+"&preference="+_this.editdetail[i].preference).then(_d => {
+          axios.get('http://47.96.124.191:8181/user/addPrefer?userId=' + _this.userId+"&factorId="+_this.editdetail[i].factorId+"&preference="+_this.editdetail[i].preference).then(_d => {
             console.log("更新偏好成功")
 
           }).catch(err => {
@@ -119,7 +119,7 @@ export default {
       // console.log(_this.screenText)
       //查找的接口
 
-      axios.get('http://localhost:8181/user/addPrefer?userId=' + _this.userId+"&factorId="+factorId+"&preference="+preference).then(_d => {
+      axios.get('http://47.96.124.191:8181/user/addPrefer?userId=' + _this.userId+"&factorId="+factorId+"&preference="+preference).then(_d => {
 
         console.log("更新偏好成功")
 

@@ -124,7 +124,7 @@ export default {
       let _this = this
       //获取详细的preferList
 
-      axios.get('http://localhost:8181/user/getDetailedPrefer' + "?userId=" + this.userId).then(_d => {
+      axios.get('http://47.96.124.191:8181/user/getDetailedPrefer' + "?userId=" + this.userId).then(_d => {
         _this.ESGdetail = _d.data;
 
         // console.log(_this.ESGdetail)

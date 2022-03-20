@@ -129,7 +129,7 @@ export default {
       //查找的接口
 
 
-      axios.get('http://localhost:8181/article/search?key=' + _this.screenText).then(_d => {
+      axios.get('http://47.96.124.191:8181/article/search?key=' + _this.screenText).then(_d => {
         _this.LookupList = _d.data
         console.log("查询成功")
         console.log(_this.LookupList)
@@ -146,7 +146,7 @@ export default {
   components: {footerbar},
   created() {
     let _this=this
-    axios.get('http://localhost:8181/article/all').then(_d => {
+    axios.get('http://47.96.124.191:8181/article/all').then(_d => {
       _this.articles = _d.data;
       console.log(_this.articles)
     })

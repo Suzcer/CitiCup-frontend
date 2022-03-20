@@ -104,7 +104,7 @@ export default {
       let _this = this
       _this.loading = true
       console.log(this.articleId)
-      let articleurl = 'http://localhost:8181/article/' + _this.articleId + "?userId=" + _this.userId;
+      let articleurl = 'http://47.96.124.191:8181/article/' + _this.articleId + "?userId=" + _this.userId;
       // console.log(this.articleurl)
 
       // axios.get(articleurl).then(_d => {

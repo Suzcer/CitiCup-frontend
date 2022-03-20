@@ -177,7 +177,7 @@ export default {
       }).then(() => {
 
         for(let i=0;i<_this.Recommend.length;i++){
-          axios.get('http://localhost:8181/user/updateFeedback?userId='+_this.userId+'&fundId='+_this.Recommend[i].fundId+'&feedback='+_this.Recommend[i].feedback).then(_d => {
+          axios.get('http://47.96.124.191:8181/user/updateFeedback?userId='+_this.userId+'&fundId='+_this.Recommend[i].fundId+'&feedback='+_this.Recommend[i].feedback).then(_d => {
             console.log("更新偏好成功")
 
           }).catch(err => {
@@ -278,7 +278,7 @@ export default {
       //查找的接口
 
 
-      axios.get('http://localhost:8181/user/getFund?userId=' + _this.userId).then(_d => {
+      axios.get('http://47.96.124.191:8181/user/getFund?userId=' + _this.userId).then(_d => {
 
         // console.log(_d.data.recommendFund)
 
@@ -311,7 +311,7 @@ export default {
   },
   mounted() {
     let _this = this
-    axios.get('http://localhost:8181/user/getPreferFactorNum' + "?userId=" + this.userId).then(_d => {
+    axios.get('http://47.96.124.191:8181/user/getPreferFactorNum' + "?userId=" + this.userId).then(_d => {
       _this.ESGvalue.push(_d.data["enum"], _d.data["snum"], _d.data["gnum"]);
       _this.drawLine();
 
@@ -381,15 +381,15 @@ export default {
 }
 
 .certainiofo i.icon_1 {
-  background-image: url("../assets/icon/浏览记录.png");
+  background-image: url("../assets/icon/explore.png");
 }
 
 .certainiofo i.icon_2 {
-  background-image: url("../assets/icon/收藏.png");
+  background-image: url("../assets/icon/collect.png");
 }
 
 .certainiofo i.icon_3 {
-  background-image: url("../assets/icon/基金.png");
+  background-image: url("../assets/icon/fund.png");
 }
 
 .lititle {
