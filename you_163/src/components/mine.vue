@@ -94,14 +94,14 @@
           <van-col span="20">
             <div>
           <span class="lititle">
-            我的投资组合
+            系统推荐基金
           </span>
             </div>
           </van-col>
           <van-col span="4">
-            <span class="mydetail">
-            详情>
-            </span>
+<!--            <span class="mydetail">-->
+<!--            详情>-->
+<!--            </span>-->
           </van-col>
         </van-row>
 
@@ -111,7 +111,7 @@
           style="width: 100%"
           @click="tofund()"
         >
-          <el-table-column label="系统推荐基金" width="160" >
+          <el-table-column label="基金名称" width="160" >
             <template #default = 'scope'>
               <router-link :to="'/fund/'+scope.row.fundId">{{scope.row.fundName}}</router-link>
             </template>

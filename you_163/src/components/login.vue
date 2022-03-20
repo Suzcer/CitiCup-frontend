@@ -51,6 +51,12 @@
 
       </div>
 
+      <h5>
+        点击此处查看
+        <el-link type="info">《用户手册》</el-link>
+        。
+      </h5>
+
       <div class="myfooter" >
         <el-link type="primary" href="https://www.baidu.com">联系我们 </el-link>
         |

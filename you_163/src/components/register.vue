@@ -40,10 +40,12 @@
         <!--            <input type="checkbox" value="remember-me" style="font-weight: 400;"> 记住我-->
         <!--          </label>-->
         <!--        </div>-->
-        <h5> 注册即表示遵循
+        <h5>
+          注册即表示遵循
           <el-link type="info">《用户协议》</el-link>
           ,点击此处查看。
         </h5>
+
         <button class="btn btn-lg btn-primary btn-block" @click="registerTo">注册</button>
         <br/>
 
@@ -75,6 +77,9 @@ export default {
       username: '',
       passwd: '',
     }
+  },
+  created() {
+
   },
   methods: {
     registerTo() {

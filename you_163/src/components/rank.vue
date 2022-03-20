@@ -72,8 +72,8 @@
               :row-style="tableRowClassName"
               :header-cell-style="tableHeaderCellStyle"
             >
-              <el-table-column prop="factorId" class="firstcol" label="Id"></el-table-column>
-              <el-table-column prop="firstClass" class="secondcol" label="类别"></el-table-column>
+              <el-table-column prop="factorId" class="firstcol" label="Id" width="50"></el-table-column>
+              <el-table-column prop="firstClass" class="secondcol" label="类别" width="50"></el-table-column>
               <el-table-column prop="name" class="thirdcol" label="因素" width="200"></el-table-column>
 
               <el-table-column
