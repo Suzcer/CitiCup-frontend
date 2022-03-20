@@ -107,20 +107,35 @@
 
         <el-table
           :data="Recommend"
-          height="500"
+          height="550"
           style="width: 100%"
           @click="tofund()"
         >
-          <el-table-column label="系统推荐基金" width="280" >
+          <el-table-column label="系统推荐基金" width="160" >
             <template #default = 'scope'>
               <router-link :to="'/fund/'+scope.row.fundId">{{scope.row.fundName}}</router-link>
             </template>
 
           </el-table-column>
+
           <el-table-column
             prop="profit"
             label="收益率"
             width="100">
+          </el-table-column>
+
+
+          <el-table-column
+            width="90"
+          >
+            <template slot="header" slot-scope="scope">
+              <el-button type="primary" round @click="postChange()">反馈</el-button>
+            </template>
+
+            <template slot-scope="scope">
+              <el-input placeholder="填写数值" @click="feedback(scope.row.fundId)" ></el-input>
+            </template>
+
           </el-table-column>
 
         </el-table>

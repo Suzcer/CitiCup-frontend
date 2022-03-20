@@ -44,7 +44,7 @@
 <!--          </template>-->
 
 
-          <!--  TODO   表格中进行基金的修改    -->
+
           <template slot-scope="scope">
             <el-input placeholder="您认为的偏好程度" @click="editpreference(scope.row.factorId,scope.row.preference)" v-model="scope.row.preference"></el-input>
           </template>
@@ -80,7 +80,7 @@ export default {
     }
   },
 
-  //TODO 进行 preference 的修改
+
   methods:{
     postChange(){
 
