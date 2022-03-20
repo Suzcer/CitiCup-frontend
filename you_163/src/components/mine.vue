@@ -133,7 +133,7 @@
             </template>
 
             <template slot-scope="scope">
-              <el-input placeholder="填写数值" @click="feedback(scope.row.fundId)" ></el-input>
+              <el-input placeholder="填写数值" v-model="scope.row.feedback"  ></el-input>
             </template>
 
           </el-table-column>
@@ -167,6 +167,37 @@ export default {
     }
   },
   methods: {
+    postChange(){
+
+      let _this = this
+      this.$confirm('此操作可能影响后续基金推荐, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+
+        for(let i=0;i<_this.Recommend.length;i++){
+          axios.get('http://localhost:8181/user/updateFeedback?userId='+_this.userId+'&fundId='+_this.Recommend[i].fundId+'&feedback='+_this.Recommend[i].feedback).then(_d => {
+            console.log("更新偏好成功")
+
+          }).catch(err => {
+              console.log("查询失败")
+            }
+          )
+
+        }
+
+        this.$message({
+          type: 'success',
+          message: '修改成功!'
+        });
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消操作'
+        });
+      });
+    },
     tominedetail(){
       let _this=this
       console.log("tominedetail")
