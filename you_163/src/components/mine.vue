@@ -147,9 +147,7 @@ export default {
     return {
       ESGvalue: [],
       userId: window.sessionStorage.getItem("userId"),
-      Recommend: [
-
-      ],
+      Recommend: [],
       username: window.sessionStorage.getItem("username"),
     }
   },
@@ -157,6 +155,8 @@ export default {
     tominedetail(){
       let _this=this
       console.log("tominedetail")
+
+
       if (_this.userId === null) {
 
         this.$message({
@@ -234,7 +234,7 @@ export default {
 
       axios.get('http://localhost:8181/user/getFund?userId=' + _this.userId).then(_d => {
 
-        console.log(_d.data.recommendFund)
+        // console.log(_d.data.recommendFund)
 
         _this.Recommend=_d.data.recommendFund
 
@@ -267,14 +267,14 @@ export default {
     let _this = this
     axios.get('http://localhost:8181/user/getPreferFactorNum' + "?userId=" + this.userId).then(_d => {
       _this.ESGvalue.push(_d.data["enum"], _d.data["snum"], _d.data["gnum"]);
-
+      _this.drawLine();
 
     }).catch(err => {
-      console.log(err)
       console.log("三个数据获取失败")
     })
     console.log(_this.ESGvalue)
-    this.drawLine();
+    console.log(_this.ESGvalue["enum"])
+
     this.fetchfund();
 
     //监听刷新，否则可能丢失数据

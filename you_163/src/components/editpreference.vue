@@ -38,9 +38,15 @@
           </template>
 
 
+
+<!--          <template #default = 'scope'>-->
+<!--            <router-link :to="'/fund/'+scope.row.fundId">{{scope.row.fundName}}</router-link>-->
+<!--          </template>-->
+
+
           <!--  TODO   表格中进行基金的修改    -->
           <template slot-scope="scope">
-            <el-input placeholder="您认为的偏好程度"></el-input>
+            <el-input placeholder="您认为的偏好程度" @click="editpreference(scope.row.factorId,scope.row.preference)" v-model="scope.row.preference"></el-input>
           </template>
         </el-table-column>
 
@@ -62,6 +68,7 @@
 
 <script>
 import footerbar from "./footerbar";
+import axios from "axios";
 
 export default {
   name: "editpreference",
@@ -69,31 +76,63 @@ export default {
     return {
       editdetail:this.$route.params.editdetail,
       editdata:[],
+      userId:window.sessionStorage.getItem("userId"),
     }
   },
+
   //TODO 进行 preference 的修改
   methods:{
-    saveChange(factorId,edititem){
-
-
-    },
     postChange(){
+
+      let _this = this
       this.$confirm('此操作可能影响后续基金推荐, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
+
+        for(let i=0;i<_this.editdetail.length;i++){
+          axios.get('http://localhost:8181/user/addPrefer?userId=' + _this.userId+"&factorId="+_this.editdetail[i].factorId+"&preference="+_this.editdetail[i].preference).then(_d => {
+
+            console.log("更新偏好成功")
+
+          }).catch(err => {
+              console.log("查询失败")
+            }
+          )
+
+        }
+
         this.$message({
           type: 'success',
-          message: '删除成功!'
+          message: '修改成功!'
         });
       }).catch(() => {
         this.$message({
           type: 'info',
-          message: '已取消删除'
+          message: '已取消操作'
         });
       });
+    },
+    editpreference(factorId,preference){
+
+      let _this = this
+      // console.log(_this.screenText)
+      //查找的接口
+
+      axios.get('http://localhost:8181/user/addPrefer?userId=' + _this.userId+"&factorId="+factorId+"&preference="+preference).then(_d => {
+
+        console.log("更新偏好成功")
+
+      }).catch(err => {
+          console.log("查询失败")
+        }
+      )
+
     }
+  },
+  created() {
+    // console.log(this.editdetail)
   },
   components: {footerbar},
 }
